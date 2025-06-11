@@ -24,6 +24,36 @@
   --letter-spacing-wide: 0.5px; /* Wider letter spacing for certain elements */
 }
 
+/* Maintenance Notice */
+.maintenance-notice {
+    background-color: rgba(255, 183, 0, 0.1);
+    border-left: 4px solid #ffb700;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    animation: pulse 2s infinite;
+}
+
+.maintenance-notice p {
+    margin: 0;
+    color: #ffb700;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.maintenance-notice p::before {
+    content: '⚠️';
+    font-size: 1.2em;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { opacity: 0.8; }
+}
+
 /* Base Styles */
 body {
   font-family: var(--body-font);
