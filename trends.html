@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trends - Adhith M K</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Nunito:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/background.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Background Animation Container -->
+    <div class="background-animation">
+        <canvas class="particles"></canvas>
+        <canvas class="waves"></canvas>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="nav-logo">AM</a>
+                <nav class="navbar">
+                    <div class="nav-links">
+                        <a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                        <a href="index.html#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+                        <a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research & Projects</a>
+                        <a href="publications.html" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+                        <a href="trends.html" class="nav-link active"><i class="fas fa-chart-line"></i> Dynamic Trends</a>
+                        <a href="index.html#blog" class="nav-link"><i class="fas fa-rss"></i> Blog</a>
+                        <a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                        <a href="admin.html" class="nav-link admin-link"><i class="fas fa-lock"></i></a>
+                    </div>
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <section class="trends-section">
+                <h2>Trends</h2>
+                <p>Latest developments in ecological research and technology</p>
+
+                <div class="trends-controls">
+                    <div class="update-info">
+                        <span>Last updated: <span id="last-updated">Loading...</span></span>
+                        <button id="refresh-trends">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label>Topic Filter:</label>
+                            <select id="topic-filter">
+                                <option value="all">All Topics</option>
+                                <option value="wildlife">Wildlife Conservation</option>
+                                <option value="acoustic">Acoustic Ecology</option>
+                                <option value="remote">Remote Sensing</option>
+                                <option value="ai">AI in Ecology</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Source:</label>
+                            <select id="source-filter">
+                                <option value="all">All Sources</option>
+                                <option value="papers">Academic Papers</option>
+                                <option value="twitter">Twitter/X</option>
+                                <option value="news">Science News</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trends-list">
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">AI in Ecology</span>
+                            <span class="date">March 25, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>New AI Models Predict Biodiversity Loss with Unprecedented Accuracy</h3>
+                            <p>Researchers at Stanford University have developed a new ensemble of machine learning models that can predict biodiversity loss due to climate change with over 85% accuracy, the highest rate achieved to date.</p>
+                            <a href="https://www.nature.com/articles/s41559-022-01914-9" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">Remote Sensing</span>
+                            <span class="date">March 20, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>Satellite Data Reveals Unexpected Forest Recovery Patterns</h3>
+                            <p>A global analysis of satellite imagery has uncovered unexpected patterns of forest recovery in previously degraded areas, suggesting new approaches for restoration ecology.</p>
+                            <a href="https://www.sciencedirect.com/science/article/pii/S0378112721007593" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">Bioacoustics</span>
+                            <span class="date">March 15, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>Acoustic Monitoring Networks Show Promise for Large-scale Biodiversity Assessment</h3>
+                            <p>A new study demonstrates how networks of acoustic sensors can provide cost-effective monitoring of biodiversity across large landscapes, offering alternatives to traditional survey methods.</p>
+                            <a href="https://www.pnas.org/doi/10.1073/pnas.2004702117" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">Conservation</span>
+                            <span class="date">March 10, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>Community-Based Conservation Models Show Improved Outcomes in Protected Areas</h3>
+                            <p>Recent studies indicate that conservation projects with strong community involvement lead to better ecological outcomes and improved local livelihoods compared to traditional top-down approaches.</p>
+                            <a href="https://conbio.onlinelibrary.wiley.com/doi/10.1111/conl.12770" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">Wildlife Tracking</span>
+                            <span class="date">March 5, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>Low-Cost GPS Tracking Reveals New Migration Patterns in Threatened Bird Species</h3>
+                            <p>Affordable GPS tracking devices have allowed researchers to document previously unknown migration patterns in several threatened bird species, highlighting new conservation priorities.</p>
+                            <a href="https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2656.13316" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="news-box">
+                        <div class="news-box-header">
+                            <span class="topic">Marine Ecology</span>
+                            <span class="date">March 1, 2025</span>
+                        </div>
+                        <div class="news-box-content">
+                            <h3>Coral Reef Restoration Techniques Show Promising Results in Climate-Affected Areas</h3>
+                            <p>Innovative coral restoration methods combining selective breeding and microbiome engineering have shown 300% higher survival rates in warming ocean conditions.</p>
+                            <a href="https://www.frontiersin.org/articles/10.3389/fmars.2021.662674/full" class="read-more">
+                                <i class="fas fa-external-link-alt"></i> Read Original Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">AM</div>
+            <p>&copy; 2025 Adhith M K. All rights reserved.</p>
+            <p>Ecological Informatics Researcher & Student</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#research">Research</a>
+                <a href="trends.html">Trends</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/trends-backend-integration.js"></script>
+    <script src="js/trends-api.js"></script>
+    <script src="js/trends-visualizations.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="js/trends-backend-integration.js"></script>
+    <script src="js/trends-api.js"></script>
+    <script src="js/trends-visualizations.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

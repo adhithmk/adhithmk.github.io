@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Adhith M K</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="js/animations.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="js/login.js" defer></script>
+    <script src="js/background.js" defer></script>
+</head>
+<body class="login-body">
+    <!-- Background Animation Container -->
+    <div class="background-animation">
+        <div class="particles"></div>
+        <div class="waves"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="nav-logo">AM</a>
+                <div class="nav-links">
+                    <a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    <a href="index.html#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+                    <a href="index.html#research" class="nav-link"><i class="fas fa-flask"></i> Research & Projects</a>
+                    <a href="index.html#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+                    <a href="trends.html" class="nav-link"><i class="fas fa-chart-line"></i> Dynamic Trends</a>
+                    <a href="index.html#blog" class="nav-link"><i class="fas fa-rss"></i> Blog</a>
+                    <a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                    <a href="admin.html" class="nav-link admin-link"><i class="fas fa-lock"></i></a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Container -->
+    <div class="login-container">
+        <div class="login-box">
+            <h2 class="login-title">Admin Login</h2>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    <button type="button" class="show-password" aria-label="Toggle password visibility">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn primary-btn">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Adhith M K</h3>
+                    <p class="footer-description">Ecological Informatics Student & Researcher</p>
+                    <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="index.html#research">Research</a></li>
+                        <li><a href="index.html#publications">Publications</a></li>
+                        <li><a href="trends.html">Trends</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Connect</h3>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-orcid"></i></a>
+                    </div>
+                    <p class="footer-email"><i class="fas fa-envelope"></i> adhith@example.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2025 Adhith M K. All rights reserved.</p>
+                <p class="credits">Designed with <i class="fas fa-heart"></i> and ecological mindfulness</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Adhith M K - Ecological Informatics</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Nunito:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/background.js" defer></script>
+    <script src="js/animations.js" defer></script>
+</head>
+<body>
+    <!-- Background Animation Container -->
+    <div class="background-animation">
+        <canvas class="particles"></canvas>
+        <canvas class="waves"></canvas>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="nav-logo">AM</a>
+                <nav class="navbar">
+                    <div class="nav-links">
+                        <a href="index.html#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                        <a href="index.html#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+                        <a href="#projects" class="nav-link"><i class="fas fa-flask"></i> Research & Projects</a>
+                        <a href="#publications" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+                        <a href="trends.html" class="nav-link"><i class="fas fa-chart-line"></i> Dynamic Trends</a>
+                        <a href="admin.html" class="nav-link admin-link"><i class="fas fa-lock"></i> Admin</a>
+                        <a href="blog.html" class="nav-link"><i class="fas fa-rss"></i> Blog</a>
+                        <a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero" id="home" style="background-image: url('https://picsum.photos/1920/1080?random=1')">
+                <div class="hero-content">
+                    <h1>ADHITH M K</h1>
+                    <p class="subtitle">Ecological Informatics Researcher | Wildlife Conservationist</p>
+                    <div class="hero-actions">
+                        <a href="#about" class="btn primary">About Me</a>
+                        <a href="trends.html" class="btn secondary">View Trends</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section" id="about">
+                <div class="page-header">
+                    <h1 class="page-title">About Me</h1>
+                    <p class="page-subtitle">Professional and academic background</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/profile_pic.jpg" alt="Profile Picture" class="profile-img">
+                    </div>
+                    <div class="about-info">
+                        <h2>ADHITH M K</h2>
+                        <p class="contact-info">
+                            <a href="mailto:theadhith@gmail.com" class="contact-link">theadhith@gmail.com</a> | 
+                            <span class="contact-link">+91 8330883873</span><br>
+                            <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a> | 
+                            <a href="https://twitter.com/adhithmk" target="_blank" class="social-link"><i class="fab fa-twitter"></i> Twitter</a> |
+                            <a href="https://github.com/adhithmk" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a> |
+                            <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" class="social-link"><i class="fas fa-blog"></i> Bluesky</a>
+                        </p>
+                        <p class="about-description">
+                            An ecological researcher specializing in Ecological Informatics with a strong foundation in Wildlife Conservation and Management. Currently pursuing a Master's in Ecology at Kerala University of Digital Sciences, Innovation and Technology, combining ecological knowledge with modern computational approaches. Experienced in biodiversity assessment and field research, with technical proficiency in R, Python, and GIS. Passionate about using data-driven approaches for wildlife conservation, ecosystem restoration, and sustainable development, seeking opportunities to contribute to innovative research projects in ecological science.
+                        </p>
+                        <div class="interests-grid">
+                            <div class="interest-card">
+                                <h4>Broad Interests</h4>
+                                <ul>
+                                    <li>Wildlife Conservation and Management</li>
+                                    <li>Ecosystem Restoration</li>
+                                    <li>Sustainable Development</li>
+                                </ul>
+                            </div>
+                            <div class="interest-card">
+                                <h4>Research Interests</h4>
+                                <ul>
+                                    <li>Acoustic Ecology</li>
+                                    <li>Ecological Informatics</li>
+                                    <li>Animal Behaviour</li>
+                                    <li>Species Interaction</li>
+                                    <li>Remote Sensing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="education-section" id="education">
+                <div class="page-header">
+                    <h1 class="page-title">Education</h1>
+                    <p class="page-subtitle">Academic background and qualifications</p>
+                </div>
+                <div class="education-grid">
+                    <div class="education-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>M.Sc. in Ecology</h3>
+                        </div>
+                        <div class="education-content">
+                            <p class="education-institution">Kerala University of Digital Sciences, Innovation and Technology</p>
+                            <p class="education-period">Aug 2023 - Present</p>
+                            <p class="education-description">Specialization in Ecological Informatics</p>
+                            <div class="education-highlights">
+                                <p><i class="fas fa-star"></i> CGPA: 7.5/10 (First Class with Distinction)</p>
+                                <p><i class="fas fa-book"></i> Relevant Coursework: Advanced GIS, Remote Sensing, Climate Modeling, Ecological Data Analysis</p>
+                                <p><i class="fas fa-trophy"></i> Recipient of the Shillim Institute Conservation Fellowship</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>B.Sc. in Zoology</h3>
+                        </div>
+                        <div class="education-content">
+                            <p class="education-institution">Shivaji College, University of Delhi</p>
+                            <p class="education-period">Jun 2019 - Mar 2022</p>
+                            <p class="education-description">Major in Zoology with focus on wildlife conservation</p>
+                            <div class="education-highlights">
+                                <p><i class="fas fa-star"></i> CGPA: 7.8/10 (First Class)</p>
+                                <p><i class="fas fa-book"></i> Relevant Coursework: Wildlife Conservation, Biodiversity Assessment, Field Research Methods</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="education-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <h3>Higher Secondary Education</h3>
+                        </div>
+                        <div class="education-content">
+                            <p class="education-institution">Farook Higher Secondary School, Kozhikode</p>
+                            <p class="education-period">Jul 2017 - Mar 2019</p>
+                            <p class="education-description">Science Stream with Biology</p>
+                            <div class="education-highlights">
+                                <p><i class="fas fa-star"></i> Percentage: 92% (A+)</p>
+                                <p><i class="fas fa-book"></i> Key Subjects: Biology, Chemistry, Physics, Mathematics, English</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section class="publications-section" id="publications">
+                <div class="page-header">
+                    <h1 class="page-title">Publications</h1>
+                    <p class="page-subtitle">Academic publications and research papers</p>
+                </div>
+                
+                <div class="publications-grid">
+                    <!-- Add your publications here -->
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="projects-section" id="projects">
+                <div class="page-header">
+                    <h1 class="page-title">Projects & Hackathons</h1>
+                    <p class="page-subtitle">Research and development work</p>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Bird Species Identification with Regional Custom CNN Model</h3>
+                            <span class="project-date">Jan 2025</span>
+                        </div>
+                        <div class="project-content">
+                            <p>As a Shillim Institute Conservation Fellow, I led a project on bird species identification using a custom ResNet50-based CNN model to evaluate restoration success in the Northern Western Ghats' Pavana Dam Catchment. The project involved:</p>
+                            <ul>
+                                <li>Deploying AudioMoth devices across 22 sites for acoustic data collection</li>
+                                <li>Analyzing distributions of 14 bird species in various habitat types</li>
+                                <li>Achieving 92.95% model accuracy in species identification</li>
+                                <li>Correlating acoustic data with habitat characteristics to inform conservation strategies</li>
+                            </ul>
+                            <div class="project-tags">
+                                <span class="tag">Ecological Informatics</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Conservation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>Smart India Hackathon 2024</h3>
+                            <span class="project-date">Sep 2024</span>
+                        </div>
+                        <div class="project-content">
+                            <p>As part of the Smart India Hackathon, our team addressed a challenge from the Punjab Skill Development Mission (PSDM) in the Smart Education category. We developed a freelancing platform that connects freelancers with employers and provides project management tools.</p>
+                            <ul>
+                                <li>Designed and developed a full-stack freelancing platform</li>
+                                <li>Implemented features for project posting, bidding, and management</li>
+                                <li>Gained hands-on experience in web application development and UI/UX design</li>
+                            </ul>
+                            <div class="project-tags">
+                                <span class="tag">Web Development</span>
+                                <span class="tag">Hackathon</span>
+                                <span class="tag">Project Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h3>LULC Change Analysis in Kannoth Padam</h3>
+                            <span class="project-date">Jun 2024</span>
+                        </div>
+                        <div class="project-content">
+                            <p>Conducted a comprehensive analysis of land use and land cover changes in Kannoth Padam, Thrissur, Kerala from 2014 to 2024 using geospatial technologies.</p>
+                            <ul>
+                                <li>Processed and analyzed high-resolution satellite imagery</li>
+                                <li>Classified land cover into five primary categories: villages, mountains, rocks, crops, and water bodies</li>
+                                <li>Produced detailed change detection maps and statistics</li>
+                                <li>Documented spatial patterns of landscape transformation over the decade</li>
+                            </ul>
+                            <div class="project-tags">
+                                <span class="tag">GIS</span>
+                                <span class="tag">Remote Sensing</span>
+                                <span class="tag">Land Use Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <!-- Certifications Section -->
+            <section class="certifications-section" id="certifications">
+                <div class="page-header">
+                    <h1 class="page-title">Certifications</h1>
+                    <p class="page-subtitle">Professional development and academic achievements</p>
+                </div>
+                
+                <div class="certifications-grid">
+                    <!-- Ecology Certification -->
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="certification-content">
+                            <h3>Ecology: Ecosystem Dynamics and Conservation</h3>
+                            <p class="certification-provider">American Museum of Natural History (Coursera)</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 80%</span>
+                                <span class="certification-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Animal Behavior Certification -->
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <div class="certification-content">
+                            <h3>Animal Behaviour and Welfare</h3>
+                            <p class="certification-provider">University of Edinburgh (Coursera)</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 82%</span>
+                                <span class="certification-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- English Composition Certification -->
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <div class="certification-content">
+                            <h3>English Composition I</h3>
+                            <p class="certification-provider">Duke University (Coursera)</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 100%</span>
+                                <span class="certification-date">2022</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marine Ecosystems Certification -->
+                    <div class="certification-card highlight">
+                        <div class="certification-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="certification-content">
+                            <div class="certification-badge">Honors</div>
+                            <h3>Large Marine Ecosystems: Assessment and Management</h3>
+                            <p class="certification-provider">University of Cape Town, NOAA, GEF, UNDP, UNESCO-IOC, UNEP</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 95.1%</span>
+                                <span class="certification-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- R Programming Certification -->
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fab fa-r-project"></i>
+                        </div>
+                        <div class="certification-content">
+                            <h3>R Programming</h3>
+                            <p class="certification-provider">Johns Hopkins University (Coursera)</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 91%</span>
+                                <span class="certification-date">2022</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Certification -->
+                    <div class="certification-card">
+                        <div class="certification-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="certification-content">
+                            <h3>Introduction to Generative AI</h3>
+                            <p class="certification-provider">Google Cloud (Coursera)</p>
+                            <div class="certification-meta">
+                                <span class="certification-score">Score: 100%</span>
+                                <span class="certification-date">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills and Expertise -->
+            <section class="skills-section" id="skills">
+                <div class="page-header">
+                    <h1 class="page-title">Skills and Expertise</h1>
+                    <p class="page-subtitle">Technical and professional skills</p>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Technical Skills Card -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3>Technical Expertise</h3>
+                        </div>
+                        <div class="skill-content">
+                            <div class="skill-items">
+                                <span class="skill-item">Ecological Data Analysis</span>
+                                <span class="skill-item">Species Distribution Modeling</span>
+                                <span class="skill-item">Habitat Suitability Analysis</span>
+                                <span class="skill-item">Land Use/Land Cover Analysis</span>
+                                <span class="skill-item">Bioacoustics Analysis</span>
+                                <span class="skill-item">Climate Data Analysis</span>
+                                <span class="skill-item">Machine Learning for Ecology</span>
+                                <span class="skill-item">Data Visualization</span>
+                                <span class="skill-item">Scientific Writing</span>
+                                <span class="skill-item">Research Methodology</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Professional Skills Card -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Professional Skills</h3>
+                        </div>
+                        <div class="skill-content">
+                            <div class="skill-items">
+                                <span class="skill-item">Scientific Communication</span>
+                                <span class="skill-item">Research Design</span>
+                                <span class="skill-item">Data Interpretation</span>
+                                <span class="skill-item">Project Management</span>
+                                <span class="skill-item">Presentation</span>
+                                <span class="skill-item">Event Organizing</span>
+                                <span class="skill-item">Time Management</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages Card -->
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>Languages</h3>
+                        </div>
+                        <div class="skill-content">
+                            <div class="skill-items">
+                                <span class="skill-item">English (Professional)</span>
+                                <span class="skill-item">Hindi (Professional)</span>
+                                <span class="skill-item">Malayalam (Native)</span>
+                                <span class="skill-item">Tamil (Conversational)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards & Achievements Section -->
+            <section class="awards-section" id="awards">
+                <div class="page-header">
+                    <h1 class="page-title">Awards & Achievements</h1>
+                    <p class="page-subtitle">Recognition and accomplishments</p>
+                </div>
+                <div class="awards-grid">
+                    <!-- Shillim Institute Fellowship -->
+                    <div class="award-card">
+                        <div class="award-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="award-content">
+                            <h3>Shillim Institute Conservation Fellowship</h3>
+                            <p class="award-date">January 2025</p>
+                            <p>Secured the prestigious Shillim Institute Conservation Fellowship during my Master's program to support dissertation research. Developed a CNN model for detecting pre-trained species in soundscape audio recordings using a supervised learning framework, customizable for specific target species, to enhance conservation efforts.</p>
+                        </div>
+                    </div>
+
+                    <!-- University Sports Achievements -->
+                    <div class="award-card">
+                        <div class="award-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="award-content">
+                            <h3>University Level Sports Achievements</h3>
+                            <p class="award-date">2024</p>
+                            <ul class="sports-achievements">
+                                <li><strong>1st Place</strong> - Mixed Doubles Table Tennis, University Level Intramural House Competitions</li>
+                                <li><strong>2nd Place</strong> - Volleyball, University Level Intramural House Competitions</li>
+                                <li><strong>3rd Place</strong> - 4x400 m Relay, University Annual Athletics Meet</li>
+                                <li><strong>3rd Place</strong> - Men's Cricket, University Level Intramural House Competitions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section class="activities-section" id="activities">
+                <div class="page-header">
+                    <h1 class="page-title">Activities & Volunteering</h1>
+                    <p class="page-subtitle">Professional and community involvement</p>
+                </div>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <div class="activity-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        
+                    
+                    <div class="activity-card" data-component-name="&lt;div /&gt;">
+                        <h4>Volunteer Work</h4>
+                        <div class="activity-grid">
+                            <div class="activity-box" data-component-name="&lt;div /&gt;">
+                                <h5 data-component-name="&lt;h5 /&gt;">National Service Scheme</h5>
+                                <p data-component-name="&lt;p /&gt;">Active member for two years, completed 240 hours of service and participated in a seven-day special camp.</p>
+                            </div>
+                            <div class="activity-box" data-component-name="&lt;div /&gt;">
+                                <h5 data-component-name="&lt;h5 /&gt;">Junior Red Cross</h5>
+                                <p data-component-name="&lt;p /&gt;">C 'level cadet, completed training on Road Safety and First aid in 2016.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-card" data-component-name="&lt;div /&gt;">
+                        <h4>Projects & Initiatives</h4>
+                        <div class="activity-grid">
+                            <div class="activity-box" data-component-name="&lt;div /&gt;">
+                                <h5 data-component-name="&lt;h5 /&gt;">She-Skill</h5>
+                                <p>Developed an app named SheSkill to empower women in the Vizhinjam fishing community, helping them learn new skills and enhance their economic status.</p>
+                            </div>
+                            <div class="activity-box" data-component-name="&lt;div /&gt;">
+                                <h5 data-component-name="&lt;h5 /&gt;">Quit One Challenge</h5>
+                                <p data-component-name="&lt;p /&gt;">Volunteered in the Quit One Challenge organized by School of Informatics, Digital University Kerala, focused on promoting sustainability.</p>
+                            </div>
+                            <div class="activity-box">
+                                <h5>Aaranyakam</h5>
+                                <p>Part of the event organizing and designing team for Aaranyakam, Eco-fest hosted by School of Informatics in collaboration with Student Council of Digital University Kerala.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Join the Conversation</h2>
+                    <p>Stay updated with the latest research and developments in ecological informatics.</p>
+                    <a href="blog.html" class="btn primary">Read More</a>
+                </div>
+            </section>
+
+            <!-- Social Section -->
+            <section class="social-section" id="social">
+                <div class="page-header">
+                    <h1 class="page-title">Connect With Me</h1>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-section">
+                            <h3>Adhith M K</h3>
+                            <p>Ecological Informatics Researcher | Digital University Kerala</p>
+                            <div class="footer-contact">
+                                <a href="mailto:theadhith@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> theadhith@gmail.com</a>
+                                <a href="tel:+918330883873" class="contact-link"><i class="fas fa-phone"></i> +91 8330883873</a>
+                            </div>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Quick Links</h3>
+                            <ul class="footer-links">
+                                <li><a href="index.html#research" class="footer-link"><i class="fas fa-flask"></i> Research</a></li>
+                                <li><a href="blog.html" class="footer-link"><i class="fas fa-rss"></i> Blog</a></li>
+                                <li><a href="trends.html" class="footer-link"><i class="fas fa-chart-line"></i> Trends</a></li>
+                                <li><a href="index.html#about" class="footer-link"><i class="fas fa-user"></i> About</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-section">
+                            <h3>Connect</h3>
+                            <div class="footer-social">
+                                <a href="https://twitter.com/adhithmk" target="_blank" class="social-link"><i class="fab fa-twitter"></i> Twitter</a>
+                                <a href="https://github.com/adhithmk" target="_blank" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" class="social-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                                <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" class="social-link"><i class="fas fa-blog"></i> Bluesky</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2025 Adhith M K. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>

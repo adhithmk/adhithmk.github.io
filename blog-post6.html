@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Low-Cost Environmental Monitoring System | Adhith M K - Ecological Informatics</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Nunito:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="js/background.js" defer></script>
+</head>
+<body>
+  <!-- Background Animation Container -->
+  <div class="background-animation">
+    <div class="particles"></div>
+    <div class="waves"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">AMK</a>
+      <div class="navbar-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="navbar-menu">
+        <li class="navbar-item">
+          <a href="index.html" class="navbar-link">Home</a>
+        </li>
+        <li class="navbar-item">
+          <a href="index.html#about" class="navbar-link">About</a>
+        </li>
+        <li class="navbar-item">
+          <a href="index.html#research" class="navbar-link">Research</a>
+        </li>
+        <li class="navbar-item">
+          <a href="index.html#publications" class="navbar-link">Publications</a>
+        </li>
+        <li class="navbar-item">
+          <a href="trends.html" class="navbar-link">Trends</a>
+        </li>
+        <li class="navbar-item">
+          <a href="blog.html" class="navbar-link active">Blog</a>
+        </li>
+        <li class="navbar-item">
+          <a href="index.html#contact" class="navbar-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Article Header -->
+  <header class="article-header">
+    <div class="container">
+      <div class="article-meta">
+        <span class="article-category">DIY Science</span>
+        <span class="article-date">March 15, 2025</span>
+      </div>
+      <h1 class="article-title">Building a Low-Cost Environmental Monitoring System with Raspberry Pi</h1>
+      <div class="article-author">
+        <img src="https://via.placeholder.com/50" alt="Adhith M K" class="author-avatar">
+        <div class="author-info">
+          <span class="author-name">Adhith M K</span>
+          <span class="author-role">Ecological Informatics Researcher</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <article class="blog-article">
+        <div class="article-featured-image" style="background-image: url('https://images.unsplash.com/photo-1516616370751-86d6bd8b0651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+        
+        <div class="article-content">
+          <p class="article-lead">A step-by-step guide to building your own environmental monitoring system using Raspberry Pi and open-source tools. Perfect for researchers, educators, and citizen scientists on a budget.</p>
+          
+          <h2>Introduction</h2>
+          
+          <p>Environmental monitoring is crucial for understanding ecosystem health and tracking climate change impacts. However, professional-grade monitoring equipment can be prohibitively expensive. In this guide, we'll show you how to build a reliable environmental monitoring system using a Raspberry Pi and off-the-shelf components.</p>
+          
+          <h2>Components Needed</h2>
+          
+          <h3>Hardware</h3>
+          <ul>
+            <li>Raspberry Pi 4 Model B (4GB RAM)</li>
+            <li>MicroSD card (32GB or larger)</li>
+            <li>Power supply (5V, 3A)</li>
+            <li>Environmental sensors:
+              <ul>
+                <li>DHT22 Temperature & Humidity Sensor</li>
+                <li>BME280 Temperature, Humidity, & Pressure Sensor</li>
+                <li>TSL2561 Light Sensor</li>
+              </ul>
+            </li>
+            <li>MicroSD card reader</li>
+            <li>WiFi adapter (if not using Raspberry Pi 4)</li>
+            <li>Power bank (optional, for field use)</li>
+          </ul>
+          
+          <h3>Software</h3>
+          <ul>
+            <li>Raspberry Pi OS (Raspbian)</li>
+            <li>Python 3.x</li>
+            <li>Adafruit CircuitPython libraries</li>
+            <li>Mosquitto MQTT broker</li>
+            <li>Grafana (for visualization)</li>
+          </ul>
+          
+          <h2>Setup Instructions</h2>
+          
+          <h3>Step 1: Install Raspberry Pi OS</h3>
+          <ol>
+            <li>Download Raspberry Pi Imager from the official website</li>
+            <li>Insert your microSD card into your computer</li>
+            <li>Open Raspberry Pi Imager and select Raspberry Pi OS Lite</li>
+            <li>Select your SD card and click Write</li>
+          </ol>
+          
+          <h3>Step 2: Connect Your Sensors</h3>
+          <p>Connect your sensors to the Raspberry Pi's GPIO pins according to the following diagram:</p>
+          
+          <figure class="article-figure">
+            <img src="https://images.unsplash.com/photo-1516616370751-86d6bd8b0651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Raspberry Pi sensor connections">
+            <figcaption>Wiring diagram for connecting environmental sensors to Raspberry Pi GPIO pins.</figcaption>
+          </figure>
+          
+          <h3>Step 3: Install Required Software</h3>
+          <pre><code class="language-bash"># Update package list and upgrade existing packages
+sudo apt update && sudo apt upgrade -y
+
+# Install Python packages
+sudo pip3 install adafruit-circuitpython-dht adafruit-circuitpython-bme280 adafruit-circuitpython-tsl2561
+
+# Install MQTT broker
+sudo apt install mosquitto mosquitto-clients
+
+# Install Grafana
+wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+sudo apt update
+sudo apt install grafana</code></pre>
+          
+          <h2>Data Collection and Visualization</h2>
+          
+          <p>Once everything is set up, you can start collecting data using our Python script:</p>
+          
+          <pre><code class="language-python">import time
+import board
+import adafruit_dht
+import adafruit_bme280
+import adafruit_tsl2561
+import paho.mqtt.client as mqtt
+
+def setup_sensors():
+    # Initialize DHT22
+    dht = adafruit_dht.DHT22(board.D4)
+    
+    # Initialize BME280
+    i2c = board.I2C()
+    bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c)
+    
+    # Initialize TSL2561
+    tsl2561 = adafruit_tsl2561.TSL2561(i2c)
+    
+    return dht, bme280, tsl2561
+
+def collect_data():
+    dht, bme280, tsl2561 = setup_sensors()
+    
+    while True:
+        try:
+            # Read DHT22
+            temp_dht = dht.temperature
+            humidity = dht.humidity
+            
+            # Read BME280
+            temp_bme = bme280.temperature
+            pressure = bme280.pressure
+            
+            # Read TSL2561
+            lux = tsl2561.lux
+            
+            # Publish to MQTT
+            client.publish("environment/temperature/dht", temp_dht)
+            client.publish("environment/temperature/bme", temp_bme)
+            client.publish("environment/humidity", humidity)
+            client.publish("environment/pressure", pressure)
+            client.publish("environment/light", lux)
+            
+            time.sleep(60)  # Collect data every minute
+            
+        except RuntimeError as e:
+            print(f"Error reading sensors: {e}")
+            time.sleep(5)
+            continue</code></pre>
+          
+          <h2>Real-World Applications</h2>
+          
+          <p>This monitoring system has been successfully deployed in several research projects:</p>
+          
+          <ul>
+            <li>Mangrove ecosystem monitoring in Kerala</li>
+            <li>Urban heat island studies</li>
+            <li>Agricultural microclimate monitoring</li>
+            <li>Forest fire risk assessment</li>
+          </ul>
+          
+          <h2>Troubleshooting Tips</h2>
+          
+          <ul>
+            <li>Ensure all sensors are properly grounded</li>
+            <li>Check power supply stability</li>
+            <li>Verify MQTT broker connection</li>
+            <li>Check sensor calibration</li>
+          </ul>
+          
+          <h2>Next Steps</h2>
+          
+          <p>Now that you have your basic monitoring system set up, consider these enhancements:</p>
+          
+          <ul>
+            <li>Add more sensors (CO2, soil moisture, etc.)</li>
+            <li>Implement data backup to cloud storage</li>
+            <li>Create custom dashboards in Grafana</li>
+            <li>Add alert notifications for extreme conditions</li>
+            <li>Integrate with weather APIs for comparative analysis</li>
+          </ul>
+          
+          <h2>Conclusion</h2>
+          
+          <p>Building your own environmental monitoring system is a rewarding way to contribute to scientific research while learning about electronics and programming. The system we've described here provides a solid foundation that can be expanded based on your specific needs and interests.</p>
+        </div>
+        
+        <div class="article-footer">
+          <div class="article-tags">
+            <span class="tag">DIY</span>
+            <span class="tag">Raspberry Pi</span>
+            <span class="tag">Environmental Monitoring</span>
+            <span class="tag">Open Source</span>
+          </div>
+          
+          <div class="article-share">
+            <span class="share-label">Share:</span>
+            <a href="#" class="share-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="share-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share-icon"><i class="far fa-envelope"></i></a>
+          </div>
+        </div>
+      </article>
+      
+      <div class="article-author-bio">
+        <img src="https://via.placeholder.com/100" alt="Adhith M K" class="author-bio-avatar">
+        <div class="author-bio-content">
+          <h3 class="author-bio-name">Adhith M K</h3>
+          <p class="author-bio-description">Adhith is an Ecological Informatics researcher specializing in the application of data science and AI to biodiversity conservation. His work focuses on developing innovative monitoring systems for ecosystems in the Western Ghats of India.</p>
+          <div class="author-bio-social">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="related-posts">
+        <h3 class="related-posts-title">Related Articles</h3>
+        <div class="related-posts-grid">
+          <a href="blog-post5.html" class="related-post">
+            <div class="related-post-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+            <h4 class="related-post-title">Climate Change Impacts on Coastal Ecosystems: Preliminary Findings</h4>
+          </a>
+          
+          <a href="blog-post1.html" class="related-post">
+            <div class="related-post-image" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+            <h4 class="related-post-title">The Future of Ecological Monitoring: AI and Automation</h4>
+          </a>
+          
+          <a href="blog-post2.html" class="related-post">
+            <div class="related-post-image" style="background-image: url('https://images.unsplash.com/photo-1551651653-c5dcb914d809?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+            <h4 class="related-post-title">5 Python Libraries Every Ecological Data Scientist Should Know</h4>
+          </a>
+        </div>
+      </div>
+      
+      <div class="comments-section">
+        <h3 class="comments-title">Comments (5)</h3>
+        
+        <div class="comment-form">
+          <h4>Leave a Comment</h4>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="comment-name">Name</label>
+                <input type="text" id="comment-name" required>
+              </div>
+              <div class="form-group">
+                <label for="comment-email">Email</label>
+                <input type="email" id="comment-email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="comment-content">Comment</label>
+              <textarea id="comment-content" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn primary-btn">Post Comment</button>
+          </form>
+        </div>
+        
+        <div class="comments-list">
+          <div class="comment">
+            <div class="comment-avatar">
+              <img src="https://via.placeholder.com/50" alt="User Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <h4 class="comment-author">John Smith</h4>
+                <span class="comment-date">March 16, 2025 u2022 10:45</span>
+              </div>
+              <div class="comment-body">
+                <p>Great guide! I'm planning to build this system for my backyard weather station. One question - would it be possible to add a camera module for time-lapse photography?</p>
+              </div>
+              <div class="comment-actions">
+                <button class="comment-reply-btn">Reply</button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="comment comment-reply">
+            <div class="comment-avatar">
+              <img src="https://via.placeholder.com/50" alt="Author Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <h4 class="comment-author">Adhith M K</h4>
+                <span class="comment-date">March 16, 2025 u2022 14:30</span>
+              </div>
+              <div class="comment-body">
+                <p>Absolutely! The Raspberry Pi Camera Module would work perfectly for time-lapse photography. You can use the picamera library to capture images at regular intervals and store them with timestamp information. This would be a great addition for tracking vegetation growth or weather patterns over time.</p>
+              </div>
+              <div class="comment-actions">
+                <button class="comment-reply-btn">Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comments-pagination">
+          <a href="#" class="pagination-item active">1</a>
+          <a href="#" class="pagination-item">2</a>
+          <a href="#" class="pagination-item pagination-next"><i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Adhith M K</h3>
+          <p class="footer-description">Ecological Informatics Student & Researcher</p>
+          <p class="footer-location"><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#research">Research</a></li>
+            <li><a href="index.html#publications">Publications</a></li>
+            <li><a href="trends.html">Trends</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3 class="footer-title">Connect</h3>
+          <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-researchgate"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-orcid"></i></a>
+          </div>
+          <p class="footer-email"><i class="fas fa-envelope"></i> adhith@example.com</p>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2025 Adhith M K. All rights reserved.</p>
+        <p class="credits">Designed with <i class="fas fa-heart"></i> and ecological mindfulness</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

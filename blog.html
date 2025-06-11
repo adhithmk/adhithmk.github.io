@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Adhith M K</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Nunito:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/background.js" defer></script>
+    <script src="js/animations.js" defer></script>
+</head>
+<body>
+    <!-- Background Animation Container -->
+    <div class="background-animation">
+        <canvas class="particles"></canvas>
+        <canvas class="waves"></canvas>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="nav-logo">AM</a>
+                <nav class="navbar">
+                    <div class="nav-links">
+                        <a href="index.html#home" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                        <a href="index.html#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+                        <a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research & Projects</a>
+                        <a href="publications.html" class="nav-link"><i class="fas fa-book"></i> Publications</a>
+                        <a href="trends.html" class="nav-link"><i class="fas fa-chart-line"></i> Dynamic Trends</a>
+                        <a href="index.html#blog" class="nav-link active"><i class="fas fa-rss"></i> Blog</a>
+                        <a href="index.html#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                    </div>
+                    <button class="mobile-menu-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Blog</h1>
+                <p class="page-subtitle">Insights, reflections, and updates from my research journey</p>
+            </div>
+            
+            <div class="blog-container">
+                <div class="blog-filters">
+                    <div class="filter-group">
+                        <label for="category-filter">Category:</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="research">Research Updates</option>
+                            <option value="technology">Technology</option>
+                            <option value="fieldwork">Fieldwork</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="conservation">Conservation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="search-group">
+                        <input type="text" id="blog-search" placeholder="Search blog posts...">
+                        <button class="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <div class="blog-grid">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">March 28, 2025</span>
+                                <span class="blog-post-category">Technology</span>
+                            </div>
+                            <h2 class="blog-post-title">The Future of Ecological Monitoring: AI and Automation</h2>
+                            <div class="blog-post-excerpt">
+                                <p>Exploring how artificial intelligence and automated systems are revolutionizing the way we monitor and understand ecosystems. From computer vision for species identification to automated sensor networks for environmental data collection, technology is changing the landscape of ecological research.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post1.html" class="read-more-btn">
+                                    <i class="fas fa-arrow-right"></i> Continue Reading
+                                </a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 8 min read</span>
+                                    <span><i class="far fa-comment"></i> 12 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 2 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">March 15, 2025</span>
+                                <span class="blog-post-category">Data Science</span>
+                            </div>
+                            <h2 class="blog-post-title">5 Python Libraries Every Ecological Data Scientist Should Know</h2>
+                            <div class="blog-post-excerpt">
+                                <p>A detailed look at the most powerful and useful Python libraries for analyzing ecological data and building predictive models. From data manipulation to visualization and machine learning, these tools are essential for modern ecological research.</p>
+                                <p>Beyond the standard NumPy and Pandas, specialized libraries like EcoPy and BioPython offer functions specifically designed for ecological and biodiversity data analysis. These tools can significantly streamline your workflow and enable more complex analyses.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post2.html" class="btn secondary-btn">Continue Reading</a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 12 min read</span>
+                                    <span><i class="far fa-comment"></i> 8 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 3 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1470071459604-b4d3fb778b09?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">February 28, 2025</span>
+                                <span class="blog-post-category">Fieldwork</span>
+                            </div>
+                            <h2 class="blog-post-title">Fieldwork in the Digital Age: Balancing Technology and Traditional Methods</h2>
+                            <div class="blog-post-excerpt">
+                                <p>Reflections on maintaining the art of field observation while embracing digital tools for data collection. How can we integrate technology without losing the essential skills and perspectives that come from direct engagement with nature?</p>
+                                <p>Digital data collection tools have streamlined the recording process, but there's still immense value in sketching, journaling, and developing an intuitive understanding of ecosystems that comes from unmediated observation. The most effective researchers find ways to balance both approaches.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post3.html" class="btn secondary-btn">Continue Reading</a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 10 min read</span>
+                                    <span><i class="far fa-comment"></i> 15 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 4 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1508193638397-1c4234db14d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">February 15, 2025</span>
+                                <span class="blog-post-category">Conservation</span>
+                            </div>
+                            <h2 class="blog-post-title">Community-Based Conservation: Lessons from the Western Ghats</h2>
+                            <div class="blog-post-excerpt">
+                                <p>Examining successful community-based conservation initiatives in the Western Ghats biodiversity hotspot. How local knowledge and participation are essential for effective and sustainable conservation efforts.</p>
+                                <p>When local communities are empowered as stewards of their natural resources, conservation efforts are more likely to succeed long-term. This article explores several case studies where traditional ecological knowledge has been integrated with scientific approaches.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post4.html" class="btn secondary-btn">Continue Reading</a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 15 min read</span>
+                                    <span><i class="far fa-comment"></i> 7 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 5 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">January 30, 2025</span>
+                                <span class="blog-post-category">Research Updates</span>
+                            </div>
+                            <h2 class="blog-post-title">Climate Change Impacts on Coastal Ecosystems: Preliminary Findings</h2>
+                            <div class="blog-post-excerpt">
+                                <p>Sharing early results from our ongoing study of climate change impacts on coastal ecosystems in Kerala. Temperature changes, sea level rise, and altered precipitation patterns are creating complex challenges for these sensitive environments.</p>
+                                <p>Our monitoring stations have recorded a 0.4°C increase in average water temperature over the past three years, correlating with observed changes in mangrove species composition and distribution patterns of several indicator species.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post5.html" class="btn secondary-btn">Continue Reading</a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 11 min read</span>
+                                    <span><i class="far fa-comment"></i> 9 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 6 -->
+                    <article class="blog-post">
+                        <div class="blog-post-image" style="background-image: url('https://images.unsplash.com/photo-1516616370751-86d6bd8b0651?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="blog-post-content">
+                            <div class="blog-post-meta">
+                                <span class="blog-post-date">January 15, 2025</span>
+                                <span class="blog-post-category">Technology</span>
+                            </div>
+                            <h2 class="blog-post-title">Building a Low-Cost Environmental Monitoring System with Raspberry Pi</h2>
+                            <div class="blog-post-excerpt">
+                                <p>A step-by-step guide to creating your own environmental monitoring system using affordable components and open-source software. This DIY approach makes advanced monitoring accessible for smaller research projects and citizen science initiatives.</p>
+                                <p>With less than $200 in components, you can build a system that collects temperature, humidity, light, and soil moisture data, with options to expand to air quality, water quality, and more specialized sensors as needed.</p>
+                            </div>
+                            <div class="blog-post-footer">
+                                <a href="blog-post6.html" class="btn secondary-btn">Continue Reading</a>
+                                <div class="blog-post-stats">
+                                    <span><i class="far fa-clock"></i> 18 min read</span>
+                                    <span><i class="far fa-comment"></i> 23 comments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="pagination-item active">1</a>
+                    <a href="#" class="pagination-item">2</a>
+                    <a href="#" class="pagination-item">3</a>
+                    <a href="#" class="pagination-item">4</a>
+                    <a href="#" class="pagination-item">5</a>
+                    <span class="pagination-more">...</span>
+                    <a href="#" class="pagination-item">10</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Adhith M K</h3>
+                    <p>Ecological Informatics Researcher</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-google-scholar"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="research.html" class="footer-link">Research</a></li>
+                        <li><a href="trends.html" class="footer-link">Trends</a></li>
+                        <li><a href="blog.html" class="footer-link">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> adhithmk@example.com</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> University of Kerala, Thiruvananthapuram</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Adhith M K. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/animation.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+</body>
+</html>
