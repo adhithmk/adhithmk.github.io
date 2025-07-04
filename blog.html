@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2E8B57">
+    <title>Blog | Adhith M K - Ecological Informatics & Acoustic Ecology</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --primary-light: #3da86a;
+            --secondary: #4a90e2;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --text-lighter: #95a5a6;
+            --bg-light: #f8f9fa;
+            --border: #e9ecef;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9fafb;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            line-height: 1.7;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3.5rem;
+        }
+        
+        .blog-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image-container {
+            position: relative;
+            padding-top: 60%; /* Slightly taller aspect ratio */
+            overflow: hidden;
+            background: #f5f7fa;
+        }
+        
+        .blog-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+        
+        .blog-category {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-category {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+        
+        .blog-content {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            border-top: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-lighter);
+        }
+        
+        .blog-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .blog-date i {
+            font-size: 0.7rem;
+            color: var(--primary);
+        }
+        
+        .blog-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+        }
+        
+        .blog-content h3 a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            background: linear-gradient(to right, var(--primary), var(--primary) 50%, var(--text) 50%);
+            background-size: 200% 100%;
+            background-position: 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover h3 a {
+            background-position: 0%;
+        }
+        
+        .blog-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1.75rem;
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 0.98rem;
+        }
+        
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            margin-top: auto;
+            width: fit-content;
+            position: relative;
+            padding-bottom: 3px;
+        }
+        
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0.7);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+            opacity: 0.5;
+        }
+        
+        .read-more i {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-card:hover .read-more {
+            color: var(--primary-light);
+        }
+        
+        .blog-card:hover .read-more::after {
+            transform: scaleX(1);
+            opacity: 1;
+        }
+        
+        .blog-card:hover .read-more i {
+            transform: translateX(4px);
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 3rem;
+        }
+        
+        .pagination a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: white;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            font-size: 0.95rem;
+        }
+        
+        .pagination a:not(.active):hover {
+            background: var(--bg-light);
+            border-color: var(--border);
+            transform: translateY(-2px);
+        }
+        
+        .pagination a.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
+        }
+        
+        .pagination a i {
+            font-size: 0.7rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .blog-grid {
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-header {
+                margin-bottom: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2.5rem 0;
+            }
+            
+            .blog-content {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+            
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+        
+        /* Footer Styles */
+        .footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 4rem 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-about h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .footer-about p {
+            color: #bdc3c7;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #2E8B57;
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h4, 
+        .footer-contact h4 {
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #2E8B57;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #2E8B57;
+            padding-left: 5px;
+        }
+        
+        .footer-contact p {
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i {
+            color: #2E8B57;
+            margin-right: 10px;
+            margin-top: 4px;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            margin: 0.5rem 0;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .footer-legal {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-legal a {
+            color: #7f8c8d;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: #2E8B57;
+        }
+        
+        .footer-legal span {
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-form .btn {
+                border-radius: 4px;
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="css/navigation.css">
+</head>
+<body>
+    <!-- Navigation -->
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Adhith M K</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
+        <li><a href="blog.html" class="nav-link active"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Blog Section -->
+    <section class="section">
+        <div class="container">
+            <header class="section-header">
+                <h1 class="section-title">Blog</h1>
+                <p class="section-subtitle">Insights, tutorials, and updates on ecological informatics, acoustic ecology, and environmental monitoring.</p>
+            </header>
+
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/gis-analysis.jpg" alt="GIS Analysis" class="blog-image">
+                        <span class="blog-category">Tutorial</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2024</span>
+                        </div>
+                        <h3><a href="#">Getting Started with QGIS for Ecological Research</a></h3>
+                        <p class="blog-excerpt">Learn the basics of QGIS and how to use it for ecological research and spatial analysis. This guide covers installation, basic tools, and practical examples.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/acoustic-monitoring.jpg" alt="Acoustic Monitoring" class="blog-image">
+                        <span class="blog-category">Research</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> May 28, 2024</span>
+                        </div>
+                        <h3><a href="#">Advancements in Acoustic Monitoring Technology</a></h3>
+                        <p class="blog-excerpt">Exploring the latest developments in acoustic monitoring equipment and software for biodiversity assessment and conservation efforts.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/field-research.jpg" alt="Field Research" class="blog-image">
+                        <span class="blog-category">Field Work</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> May 10, 2024</span>
+                        </div>
+                        <h3><a href="#">Best Practices for Field Data Collection</a></h3>
+                        <p class="blog-excerpt">Essential tips and techniques for collecting accurate and reliable data during ecological field research expeditions.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/data-visualization.jpg" alt="Data Visualization" class="blog-image">
+                        <span class="blog-category">Tutorial</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> April 22, 2024</span>
+                        </div>
+                        <h3><a href="#">Effective Data Visualization in R</a></h3>
+                        <p class="blog-excerpt">A comprehensive guide to creating publication-quality data visualizations using R and ggplot2 for ecological and environmental data.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/species-identification.jpg" alt="Species Identification" class="blog-image">
+                        <span class="blog-category">Research</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> April 5, 2024</span>
+                        </div>
+                        <h3><a href="#">Machine Learning for Automated Species Identification</a></h3>
+                        <p class="blog-excerpt">How machine learning is revolutionizing species identification from camera trap images and acoustic recordings.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image-container">
+                        <img src="images/blog/conservation-tech.jpg" alt="Conservation Technology" class="blog-image">
+                        <span class="blog-category">Technology</span>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date"><i class="far fa-calendar"></i> March 18, 2024</span>
+                        </div>
+                        <h3><a href="#">Emerging Technologies in Conservation</a></h3>
+                        <p class="blog-excerpt">Exploring cutting-edge technologies being used in wildlife conservation and environmental monitoring around the world.</p>
+                        <a href="#" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#" aria-label="Next page"><i class="fas fa-chevron-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Adhith M K</h3>
+                    <p>Ecological Informatics & Acoustic Ecology Researcher</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research & Publications</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
+                        <li><a href="field-work.html">Field Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                    
+                    <!-- Map Section -->
+                    <div class="map-section" style="margin-top: 2rem; max-width: 100%;">
+                        <h4 style="text-align: left; margin: 2rem 0 1rem; color: #fff; font-size: 1.1rem;">Find Me Here</h4>
+                        <div class="map-container" style="height: 250px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                            <div id="footer-map" style="width: 100%; height: 100%;">
+                                <!-- Map will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Adhith M K. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Map Section -->
+    <div class="map-section" style="margin: 4rem auto 0; max-width: 1000px; padding: 0 1.5rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #2c3e50; font-size: 2rem;">Find Me Here</h2>
+        <div class="map-container" style="height: 500px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #f0f0f0;">
+            <div id="map" style="width: 100%; height: 100%; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0">
+                <!-- Map will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Update current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+            
+            // Mobile menu toggle functionality
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

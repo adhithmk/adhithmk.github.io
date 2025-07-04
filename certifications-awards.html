@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2E8B57">
+    <title>Certifications & Awards | Adhith M K</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        :root {
+            --primary: #2E8B57;
+            --secondary: #4a90e2;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --border: #e9ecef;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f9fafb;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .page-title, .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--text);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        /* Certifications & Awards Grid */
+        .certifications-grid, .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .certification-card, .award-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            transition: all 0.2s ease;
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+        }
+        
+        .certification-card:hover, .award-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        
+        .certification-icon, .award-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .award-icon {
+            background: var(--secondary);
+        }
+        
+        .certification-details, .award-details {
+            flex: 1;
+        }
+        
+        .certification-title, .award-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0 0 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .certification-issuer, .award-issuer {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .certification-date, .award-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.75rem 0 1rem;
+        }
+        
+        .certification-date i, .award-date i {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+        }
+        
+        .certification-credential, .award-credential {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .certification-credential:hover, .award-credential:hover {
+            color: #1a6b3f;
+            text-decoration: underline;
+        }
+        
+        .bg-light {
+            background-color: var(--bg-light);
+        }
+        
+        @media (max-width: 992px) {
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .certifications-grid, .awards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3.5rem 0;
+            }
+            
+            .page-title {
+                font-size: 2.25rem;
+                margin-bottom: 3rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-top: 3.5rem;
+            }
+            
+            .certifications-grid, .awards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            
+            .certification-card, .award-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin-top: 3rem;
+                margin-bottom: 2rem;
+            }
+            
+            .certification-card, .award-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .certification-icon, .award-icon {
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Adhith M K</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="certifications-awards.html" class="nav-link active"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
+        <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h1 class="page-title">Certifications & Activities</h1>
+            
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Ecology: Ecosystem Dynamics and Conservation</h3>
+                        <p class="certification-issuer">American Museum of Natural History on Coursera</p>
+                        <p class="certification-date">Score: 80%</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Animal Behaviour and Welfare</h3>
+                        <p class="certification-issuer">University of Edinburgh on Coursera</p>
+                        <p class="certification-date">Score: 82%</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>English Composition I</h3>
+                        <p class="certification-issuer">Duke University on Coursera</p>
+                        <p class="certification-date">Score: 100%</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Large Marine Ecosystems: Assessment and Management</h3>
+                        <p class="certification-issuer">University of Cape Town, NOAA, GEF, UNDP, UNESCO-IOC, and United Nations Environment Program on Coursera</p>
+                        <p class="certification-date">Score: 95.10% (Completed with honors)</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>R Programming</h3>
+                        <p class="certification-issuer">Johns Hopkins University on Coursera</p>
+                        <p class="certification-date">Score: 91%</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="certification-content">
+                        <h3>Introduction to Generative AI</h3>
+                        <p class="certification-issuer">Google Cloud on Coursera</p>
+                        <p class="certification-date">Score: 100%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Awards & Achievements</h2>
+            
+            <div class="awards-grid">
+                <!-- Award 1 -->
+                <div class="award-card">
+                    <div class="award-header">
+                        <h3 class="award-title">Shillim Institute Conservation Fellowship</h3>
+                        <p class="award-issuer">Shillim Institute</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">Secured the Shillim Institute Conservation Fellowship during my Master's program to support dissertation research. Developed a CNN model for detecting pre-trained species in soundscape audio recordings using a supervised learning framework, customizable for specific target species, to enhance conservation efforts.</p>
+                        <div class="award-meta">
+                            <span class="award-date"><i class="far fa-calendar"></i> January 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Award 2 -->
+                <div class="award-card">
+                    <div class="award-header">
+                        <h3 class="award-title">University Level Sports</h3>
+                        <p class="award-issuer">Kerala University of Digital Sciences, Innovation and Technology</p>
+                    </div>
+                    <div class="award-body">
+                        <ul class="award-description">
+                            <li>Mixed Doubles Table Tennis: 1st Place, University Level Intramural House Competitions, 2024</li>
+                            <li>Volleyball: 2nd Place, University Level Intramural House Competitions, 2024</li>
+                            <li>4x400 m Relay: 3rd Place, University Annual Athletics Meet, 2024</li>
+                            <li>Men's Cricket: 3rd Place, University Level Intramural House Competitions, 2024</li>
+                        </ul>
+                        <div class="award-meta">
+                            <span class="award-date"><i class="far fa-calendar"></i> 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Award 3 -->
+                <div class="award-card">
+                    <div class="award-header">
+                        <h3 class="award-title">Two Day Water Budgeting Workshop</h3>
+                        <p class="award-issuer">Unnat Bharat Abhiyan, Digital University Kerala</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">As part of the Unnat Bharat Abhiyan programme at Digital University Kerala, I attended a two-day workshop where experts explained about water budgeting for a panchayat with a case study of Pothencode Panchayath.</p>
+                        <div class="award-meta">
+                            <span class="award-date"><i class="far fa-calendar"></i> March 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Award 4 -->
+                <div class="award-card">
+                    <div class="award-header">
+                        <h3 class="award-title">Poster Presentation</h3>
+                        <p class="award-issuer">National Seminar on "Recent Trends in Biological Research and Career Prospects"</p>
+                    </div>
+                    <div class="award-body">
+                        <p class="award-description">Presented a poster titled "Antibiotic Resistance bacteria: Klebsiella pneumoniae" in a National Seminar on "Recent Trends in Biological Research and Career Prospects" held at Shivaji College, University of Delhi.</p>
+                        <div class="award-meta">
+                            <span class="award-date"><i class="far fa-calendar"></i> September 2019</span>
+                            <span class="award-location"><i class="fas fa-map-marker-alt"></i> Shivaji College, University of Delhi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Adhith M K</h3>
+                    <p>Ecological Informatics & Acoustic Ecology Researcher</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
+                        <li><a href="field-work.html">Field Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Adhith M K. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="terms-of-service.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

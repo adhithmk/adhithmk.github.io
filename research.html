@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2E8B57">
+    <title>Research & Publications | Adhith M K</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        /* Modern Minimalist Research Styles */
+        :root {
+            --primary: #2E8B57;
+            --secondary: #4a90e2;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --border: #e9ecef;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 0 0 4rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .project-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        
+        .project-content {
+            padding: 0;
+        }
+        
+        .project-card h3 {
+            color: var(--text);
+            margin: 0 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .project-date, .project-role, .project-location {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .project-date i, 
+        .project-role i, 
+        .project-location i {
+            color: var(--primary);
+            width: 16px;
+            text-align: center;
+        }
+        
+        .project-card p {
+            color: #555;
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+        
+        .project-highlights {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .project-highlights li {
+            margin-bottom: 0.7rem;
+            color: #495057;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .project-highlights li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #2E8B57;
+            position: absolute;
+            left: -1.5rem;
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-skills span {
+            background: rgba(46, 139, 87, 0.1);
+            color: #2E8B57;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #2E8B57, #4a90e2);
+            border-radius: 2px;
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa;
+        }
+        
+        .project-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border);
+        }
+        
+        .project-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0 0;
+        }
+        
+        .skill-tag {
+            background: var(--bg-light);
+            color: var(--text-light);
+            padding: 0.35rem 0.9rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .project-links {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+        
+        .btn i {
+            font-size: 0.9em;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #247a4a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2);
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            background: transparent;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(74, 144, 226, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .project-card {
+                padding: 1.5rem;
+            }
+            
+            .project-meta {
+                gap: 1rem;
+                margin-bottom: 1rem;
+                padding-bottom: 1rem;
+            }
+            
+            .project-date, .project-role, .project-location {
+                font-size: 0.95rem;
+            }
+            
+            .project-skills {
+                gap: 0.5rem;
+            }
+            
+            .project-skills span {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .page-title {
+                font-size: 1.75rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .project-card {
+                padding: 1.25rem;
+            }
+            
+            .project-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .project-description {
+                padding-left: 1rem;
+                margin: 1.25rem 0;
+            }
+            
+            .project-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Adhith M K</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="research.html" class="nav-link active"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
+        <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Research Section -->
+    <section id="research" class="section">
+        <div class="container">
+            <h1 class="page-title">Research & Projects</h1>
+            
+<div class="project-card">
+                <div class="project-content">
+                    <h3>Land Use and Land Cover Change Analysis</h3>
+                    <div class="project-meta">
+                        <span class="project-date"><i class="far fa-calendar-alt"></i> June 2024</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Kannoth Padam, Kerala</span>
+                        <span class="project-role"><i class="fas fa-users"></i> Field Research Team</span>
+                    </div>
+                    <p class="project-description">
+                        Conducted field surveys and GIS analysis to study land use changes in the region over the past decade. 
+                        The study focused on the impact of urbanization on agricultural lands and natural habitats.
+                    </p>
+                    <div class="project-skills">
+                        <span class="skill-tag">GIS</span>
+                        <span class="skill-tag">Remote Sensing</span>
+                        <span class="skill-tag">Field Survey</span>
+                        <span class="skill-tag">QGIS</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Hydrological Impact Assessment</h3>
+                    <div class="project-meta">
+                        <span class="project-date"><i class="far fa-calendar-alt"></i> March 2024</span>
+                        <span class="project-location"><i class="fas fa-map-marker-alt"></i> Periyar River Basin</span>
+                        <span class="project-role"><i class="fas fa-users"></i> Research Team</span>
+                    </div>
+                    <p class="project-description">
+                        Studied the hydrological impacts of climate change on the Periyar River Basin, focusing on water resource management and flood risk assessment.
+                        Analyzed rainfall patterns, river discharge data, and modeled potential flood scenarios to assess impacts on local communities and agriculture.
+                    </p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Hydrology</span>
+                        <span class="skill-tag">Climate Modeling</span>
+                        <span class="skill-tag">Water Resources</span>
+                        <span class="skill-tag">GIS Analysis</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Smart India Hackathon 2024</h3>
+                    <div class="project-meta">
+                        <span class="project-date"><i class="far fa-calendar-alt"></i> September 2024</span>
+                        <span class="project-location"><i class="fas fa-university"></i> DUK Innovation Club</span>
+                        <span class="project-role"><i class="fas fa-trophy"></i> National Level</span>
+                    </div>
+                    <p class="project-description">
+                        Participated in the national-level Smart India Hackathon, an initiative by the Ministry of Education's Innovation Cell.
+                        Addressed challenges in Smart Education for the Punjab Skill Development Mission by developing a freelancing platform
+                        that connects freelancers with employers and implements tools for efficient project management and skill matching.
+                    </p>
+                    <div class="project-skills">
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Team Collaboration</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Publications & Research</h2>
+            
+            <div class="publication-card">
+                <h3>Bird Species Identification with Regional Custom CNN Model</h3>
+                <p class="publication-authors">Adhith M K, et al.</p>
+                <p class="publication-journal">In Progress - 2025</p>
+                <p>Research on using custom CNN models for bird species identification in the Northern Western Ghats region, achieving 92.95% accuracy in species classification.</p>
+            </div>
+            
+            <div class="publication-card">
+                <h3>Land Use and Land Cover Change Analysis in Kannoth Padam, Thrissur</h3>
+                <p class="publication-authors">Adhith M K</p>
+                <p class="publication-journal">Research Project - 2024</p>
+                <p>Analysis of land use and land cover changes from 2014 to 2024 using geospatial techniques and satellite imagery.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Adhith M K</a>
+                    <p>Ecological Informatics Researcher</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research & Publications</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
+                        <li><a href="field-work.html">Field Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Me</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Adhith M K. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>

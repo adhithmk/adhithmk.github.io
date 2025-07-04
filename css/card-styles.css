@@ -1,0 +1,158 @@
+/* Card and Box Styles */
+:root {
+  --card-bg-1: #f8f9fa;
+  --card-bg-2: #f1f8ff;
+  --card-bg-3: #f8f5ff;
+  --card-bg-4: #fff8f0;
+  --card-bg-5: #f0fff4;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --card-hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  --card-border-radius: 12px;
+  --card-padding: 1.5rem;
+  --transition: all 0.3s ease;
+}
+
+/* Blog Cards */
+.blog-card {
+  background: white;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg-1);
+  border-left: 4px solid #4a90e2;
+}
+
+.blog-card:nth-child(odd) {
+  background-color: var(--card-bg-2);
+  border-left-color: #6f42c1;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Section Cards */
+.section-card {
+  background: white;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  background-color: var(--card-bg-3);
+  border-top: 3px solid #6f42c1;
+}
+
+.section-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Education/Experience Cards */
+.timeline-card {
+  background: white;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  padding-left: 2.5rem;
+  background-color: var(--card-bg-4);
+  border-left: 4px solid #ffc107;
+}
+
+.timeline-card::before {
+  content: '●';
+  position: absolute;
+  left: 1rem;
+  color: #ffc107;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Certification Cards */
+.certification-card {
+  background: white;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  background-color: var(--card-bg-5);
+  border-bottom: 3px solid #28a745;
+}
+
+.certification-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Field Work Cards */
+.field-work-card {
+  background: white;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+  background-color: var(--card-bg-2);
+  border-top: 3px solid #17a2b8;
+}
+
+.field-work-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  :root {
+    --card-padding: 1.25rem;
+  }
+  
+  .blog-card,
+  .section-card,
+  .timeline-card,
+  .certification-card,
+  .field-work-card {
+    margin-bottom: 1.25rem;
+  }
+}
+
+/* Add subtle animation to all cards */
+.blog-card,
+.section-card,
+.timeline-card,
+.certification-card,
+.field-work-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Add hover effect to all interactive elements */
+a:not(.btn):hover {
+  color: #2E8B57;
+  text-decoration: none;
+}
+
+/* Style for card titles */
+.card-title {
+  color: #2c3e50;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Style for card text */
+.card-text {
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Add subtle border to images in cards */
+.card-img-top {
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}

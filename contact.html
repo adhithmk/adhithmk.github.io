@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2E8B57">
+    <title>Contact | Adhith M K - Ecological Informatics & Acoustic Ecology</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://maps.googleapis.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* Modern Minimalist Contact Page */
+        :root {
+            --primary: #2E8B57;
+            --primary-light: #e9f5f0;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --border: #e9ecef;
+            --bg-light: #f8f9fa;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Contact Page Layout */
+        .contact-page {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin: 0 0 4rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-info {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-info:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        
+        .contact-method:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            color: var(--primary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-method:hover .contact-icon {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-details h3 {
+            margin: 0 0 0.5rem;
+            color: var(--text);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .contact-details p, 
+        .contact-details a {
+            margin: 0;
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 1.7;
+            transition: color 0.2s ease;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .contact-form:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background-color: var(--bg-light);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+            background-color: #fff;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn i {
+            font-size: 0.9em;
+        }
+        
+        .btn:hover {
+            background: #247a48;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(46, 139, 87, 0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: all 0.2s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 139, 87, 0.15);
+        }
+        
+        /* Map Container */
+        .map-container {
+            height: 100%;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        
+        .map-container:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+        
+        #map {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+            background: var(--bg-light);
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                max-width: 700px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .contact-form {
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-page {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-icon {
+                margin: 0 0 1rem 0;
+            }
+            
+            .social-links {
+                justify-content: flex-start;
+                margin-top: 1rem;
+            }
+            
+            .map-section {
+                margin-top: 3rem;
+                padding: 0 1rem;
+            }
+            
+            #map {
+                min-height: 350px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-page {
+                padding: 2rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-info,
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding-bottom: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .btn {
+                padding: 0.65rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Adhith M K</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
+        <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="contact.html" class="nav-link active"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Contact Page Content -->
+    <main class="contact-page">
+        <section id="contact" class="section">
+            <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">Get In Touch</h2>
+                <div class="contact-single" style="background: var(--card-bg); border-radius: var(--radius); padding: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <div class="contact-info" style="text-align: center;">
+                        <h3 style="margin-top: 0; margin-bottom: 1.5rem; color: var(--text); font-size: 1.5rem;">Get In Touch</h3>
+                        <div class="social-links" style="display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
+                            <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky" class="social-icon" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#0085FF'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fas fa-cloud" style="font-size: 1.5rem;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#0077b5'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i>
+                            </a>
+                            <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#1DA1F2'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fab fa-twitter" style="font-size: 1.5rem;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/adhith_mk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#E4405F'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fab fa-instagram" style="font-size: 1.5rem;"></i>
+                            </a>
+                            <a href="https://github.com/adhithmk" target="_blank" rel="noopener noreferrer" aria-label="GitHub" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#181717'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fab fa-github" style="font-size: 1.5rem;"></i>
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=youruserid" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" style="display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: #f0f4f8; color: #333; transition: all 0.3s ease;" onmouseover="this.style.background='#4285F4'; this.style.color='white'" onmouseout="this.style.background='#f0f4f8'; this.style.color='#333'">
+                                <i class="fas fa-graduation-cap" style="font-size: 1.5rem;"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="contact-methods" style="max-width: 600px; margin: 0 auto;">
+                            <h4 style="margin-top: 0; margin-bottom: 1.5rem; color: var(--text); font-size: 1.3rem; position: relative; display: inline-block; padding-bottom: 0.5rem;">
+                                Preferred Contact Methods
+                                <span style="position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--primary);"></span>
+                            </h4>
+                            <ul style="list-style: none; padding: 0; margin: 0; text-align: left;">
+                                <li style="margin-bottom: 1.2rem;">
+                                    <a href="mailto:theadhith@gmail.com" class="contact-link" style="display: flex; align-items: center; color: var(--text); text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(0, 133, 255, 0.05);" onmouseover="this.style.transform='translateX(8px)'; this.style.background='rgba(0, 133, 255, 0.1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.05)'; this.querySelector('i.fa-arrow-right').style.opacity='1'; this.querySelector('i.fa-arrow-right').style.transform='translateX(0)';" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(0, 133, 255, 0.05)'; this.style.boxShadow='none'; this.querySelector('i.fa-arrow-right').style.opacity='0'; this.querySelector('i.fa-arrow-right').style.transform='translateX(-10px)'">
+                                        <i class="fas fa-envelope" style="margin-right: 1.2rem; color: var(--primary); font-size: 1.2rem; width: 24px; text-align: center; transition: transform 0.3s ease;"></i>
+                                        <span style="position: relative; transition: all 0.3s ease;">Email for formal inquiries</span>
+                                        <i class="fas fa-arrow-right" style="margin-left: auto; color: var(--primary); opacity: 0; transform: translateX(-10px); transition: all 0.3s ease 0.1s;"></i>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 1.2rem;">
+                                    <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" class="contact-link" style="display: flex; align-items: center; color: var(--text); text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(29, 161, 242, 0.05);" onmouseover="this.style.transform='translateX(8px)'; this.style.background='rgba(29, 161, 242, 0.1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.05)'; this.querySelector('i.fa-arrow-right').style.opacity='1'; this.querySelector('i.fa-arrow-right').style.transform='translateX(0)';" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(29, 161, 242, 0.05)'; this.style.boxShadow='none'; this.querySelector('i.fa-arrow-right').style.opacity='0'; this.querySelector('i.fa-arrow-right').style.transform='translateX(-10px)'">
+                                        <i class="fab fa-twitter" style="margin-right: 1.2rem; color: #1DA1F2; font-size: 1.2rem; width: 24px; text-align: center; transition: transform 0.3s ease;"></i>
+                                        <span style="position: relative; transition: all 0.3s ease;">Twitter for quick questions</span>
+                                        <i class="fas fa-arrow-right" style="margin-left: auto; color: #1DA1F2; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease 0.1s;"></i>
+                                    </a>
+                                </li>
+                                <li style="margin-bottom: 0;">
+                                    <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" class="contact-link" style="display: flex; align-items: center; color: var(--text); text-decoration: none; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); padding: 0.8rem 1.5rem; border-radius: 8px; background: rgba(0, 119, 181, 0.05);" onmouseover="this.style.transform='translateX(8px)'; this.style.background='rgba(0, 119, 181, 0.1)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.05)'; this.querySelector('i.fa-arrow-right').style.opacity='1'; this.querySelector('i.fa-arrow-right').style.transform='translateX(0)';" onmouseout="this.style.transform='translateX(0)'; this.style.background='rgba(0, 119, 181, 0.05)'; this.style.boxShadow='none'; this.querySelector('i.fa-arrow-right').style.opacity='0'; this.querySelector('i.fa-arrow-right').style.transform='translateX(-10px)'">
+                                        <i class="fab fa-linkedin-in" style="margin-right: 1.2rem; color: #0077b5; font-size: 1.2rem; width: 24px; text-align: center; transition: transform 0.3s ease;"></i>
+                                        <span style="position: relative; transition: all 0.3s ease;">LinkedIn for professional connections</span>
+                                        <i class="fas fa-arrow-right" style="margin-left: auto; color: #0077b5; opacity: 0; transform: translateX(-10px); transition: all 0.3s ease 0.1s;"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Map Section -->
+            <section class="map-section" style="margin-top: 4rem;">
+                <div class="map-card" style="background: var(--card-bg); border-radius: var(--radius); padding: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+                    <h2 style="margin-top: 0; margin-bottom: 2.5rem; color: var(--text); font-size: 1.8rem; text-align: center; position: relative; padding-bottom: 1rem;">
+                        Find Me Here
+                        <span style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 3px; background: var(--primary); border-radius: 2px;"></span>
+                    </h2>
+                    
+                    <div class="map-container" style="max-width: 800px; height: 300px; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.1); margin: 0 auto 1.5rem;">
+                        <div id="map" style="width: 100%; height: 100%;"></div>
+                    </div>
+                    
+                    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                        <div style="display: inline-flex; align-items: center; background: rgba(0, 133, 255, 0.1); padding: 0.8rem 2rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--primary); font-size: 1.2rem; margin-right: 0.8rem;"></i>
+                            <span style="color: var(--text); font-weight: 500; font-size: 1.1rem;">Kerala, India</span>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Adhith M K</h3>
+                    <p>Ecological Informatics & Acoustic Ecology Researcher</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="certifications-awards.html">Certifications</a></li>
+                        <li><a href="field-work.html">Field Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Adhith M K. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    <script>
+        // Update current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+
+            // Initialize the map
+            if (document.getElementById('map')) {
+                // Set the initial map view to Farook College, Kerala
+                const farookCollegeCoords = [11.1915, 75.8489];
+                const map = L.map('map').setView(farookCollegeCoords, 15);
+                
+                // Add OpenStreetMap tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 19
+                }).addTo(map);
+                
+                // Create a custom icon
+                const collegeIcon = L.divIcon({
+                    html: `
+                        <div style="
+                            position: relative;
+                            width: 50px;
+                            height: 50px;
+                            background: #2E8B57;
+                            border-radius: 50% 50% 50% 0;
+                            transform: rotate(-45deg);
+                            margin: 20px 0 0 -25px;
+                            animation: bounce 1s ease-in-out infinite;
+                        ">
+                            <div style="
+                                position: absolute;
+                                width: 30px;
+                                height: 30px;
+                                left: 10px;
+                                top: 10px;
+                                background: white;
+                                border-radius: 50%;
+                                transform: rotate(45deg);
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 18px;
+                                color: #2E8B57;
+                            ">
+                                <i class="fas fa-university"></i>
+                            </div>
+                        </div>
+                        <style>
+                            @keyframes bounce {
+                                0% { transform: rotate(-45deg) translateY(0); }
+                                50% { transform: rotate(-45deg) translateY(-10px); }
+                                100% { transform: rotate(-45deg) translateY(0); }
+                            }
+                        </style>
+    <link rel="stylesheet" href="css/navigation.css">
+                    `,
+                    className: 'custom-pin',
+                    iconSize: [50, 50],
+                    iconAnchor: [25, 50],
+                    popupAnchor: [0, -50]
+                });
+                
+                // Add marker to the map
+                L.marker(farookCollegeCoords, {icon: collegeIcon})
+                    .addTo(map)
+                    .bindPopup(`
+                        <div style="text-align: center; padding: 5px;">
+                            <h3 style="margin: 0 0 5px; color: #2E8B57;">You can find me here</h3>
+                            <p style="margin: 0;">Kozhikode, Kerala, India</p>
+                            <small>11°11'29.4"N 75°50'56.0"E</small>
+                        </div>
+                    `)
+                    .openPopup();
+                
+                // Fix map display issues when the container is hidden/visible
+                setTimeout(() => {
+                    map.invalidateSize();
+                }, 100);
+            }
+        });
+    </script>
+</body>
+</html>

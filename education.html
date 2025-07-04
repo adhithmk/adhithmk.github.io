@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2E8B57">
+    <title>Education | Adhith M K</title>
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Preload critical CSS -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/navigation.css">
+    <style>
+        /* Modern Minimalist Education Styles */
+        :root {
+            --primary: #2E8B57;
+            --secondary: #4a90e2;
+            --text: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --border: #e9ecef;
+            --card-bg: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.05);
+            --radius: 8px;
+        }
+        
+        body {
+            background-color: #fff;
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 0 0 4rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .education-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: all 0.2s ease;
+        }
+        
+        .education-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+            transform: translateY(-2px);
+        }
+        
+        .education-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        
+        .education-card h3 {
+            color: var(--text);
+            margin: 0 0 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .degree, .date-location {
+            color: var(--text-light);
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .date-location i {
+            color: var(--primary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .education-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+        
+        .education-details {
+            padding: 1.5rem 0 0;
+        }
+        
+        .education-details p {
+            margin: 0 0 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+        
+        .education-details ul {
+            padding-left: 1.2rem;
+            margin: 1rem 0 0;
+        }
+        
+        .education-details li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .education-details li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .education-card {
+                padding: 1.5rem;
+            }
+            
+            .education-header {
+                padding: 0 0 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 2.5rem 0;
+            }
+            
+            .page-title {
+                font-size: 1.75rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .education-card {
+                padding: 1.25rem;
+            }
+            
+            .education-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .degree, .date-location {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Add a subtle pattern to the background */
+        body {
+            background-color: #f8f9fa;
+            background-image: radial-gradient(#e3e3e3 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Adhith M K</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
+        <li><a href="education.html" class="nav-link active"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
+        <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
+        <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h1 class="page-title">Education</h1>
+            
+            <div class="education-grid">
+                <!-- Education Item 1 -->
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Kerala University of Digital Sciences, Innovation and Technology</h3>
+                        <p class="degree"><i class="fas fa-graduation-cap"></i> Master of Science in Ecology</p>
+                        <p class="date-location"><i class="far fa-calendar-alt"></i> Aug. 2023 – Present</p>
+                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Thiruvananthapuram, Kerala</p>
+                    </div>
+                    <div class="education-body">
+                        <div class="education-details">
+                            <p><strong>Specialization:</strong> Ecological Informatics</p>
+                            <p><strong>Relevant Coursework:</strong> Ecological Modeling, GIS & Remote Sensing, Conservation Biology, Statistical Ecology</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 2 -->
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Shivaji College, University of Delhi</h3>
+                        <p class="degree"><i class="fas fa-graduation-cap"></i> Bachelor of Science in Zoology</p>
+                        <p class="date-location"><i class="far fa-calendar-alt"></i> Jun 2019 – Mar 2022</p>
+                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                    </div>
+                    <div class="education-body">
+                        <div class="education-details">
+                            <p><strong>CGPA:</strong> 8.5/10</p>
+                            <p><strong>Key Courses:</strong> Animal Behavior, Ecology, Evolution, Genetics, Biostatistics</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Education Item 3 -->
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3>Farook Higher Secondary School</h3>
+                        <p class="degree"><i class="fas fa-graduation-cap"></i> Science (Biology)</p>
+                        <p class="date-location"><i class="far fa-calendar-alt"></i> Jul. 2017 – Mar. 2019</p>
+                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Kozhikode, Kerala</p>
+                    </div>
+                    <div class="education-body">
+                        <div class="education-details">
+                            <p><strong>Grade:</strong> 95%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">Adhith M K</a>
+                    <p>Ecological Informatics Researcher</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="research.html">Research & Publications</a></li>
+                        <li><a href="education.html">Education</a></li>
+                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
+                        <li><a href="field-work.html">Field Work</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Me</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
+                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Adhith M K. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
