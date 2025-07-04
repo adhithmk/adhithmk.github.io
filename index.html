@@ -165,11 +165,11 @@
       background-color: #f5f7fa; /* Fallback color */
       background-size: auto 100%;
       color: white;
-      padding: 140px 0 80px;
+      padding: 420px 0 80px; /* Increased top padding further to 420px */
       text-align: center;
       position: relative;
       overflow: hidden;
-      min-height: 500px; /* Adjust this value based on your preference */
+      min-height: 780px; /* Increased further to accommodate the extra padding */
     }
 
     .hero::before {
@@ -963,13 +963,13 @@
         <span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
         <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
         <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
         <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
         <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
-        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -1192,12 +1192,22 @@
     });
     
     // Add active class to current page in navigation
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link').forEach(link => {
       const linkHref = link.getAttribute('href');
-      if (linkHref === currentPage || 
-          (currentPage === '' && linkHref === 'index.html') ||
-          (currentPage.includes(linkHref.replace('.html', '')) && linkHref !== 'index.html')) {
+      // Remove active class from all links first
+      link.classList.remove('active');
+      
+      // Add active class to current section based on scroll position
+      if (linkHref.startsWith('#')) {
+        const section = document.querySelector(linkHref);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            link.classList.add('active');
+          }
+        }
+      } else if (linkHref === 'index.html' && window.location.pathname.endsWith('index.html') || 
+                 window.location.pathname === '/') {
         link.classList.add('active');
       }
     });
@@ -1205,8 +1215,9 @@
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
-        // Don't prevent default for external links
-        if (this.getAttribute('href').startsWith('http')) {
+        // Don't prevent default for external links or non-anchor links
+        if (this.getAttribute('href').startsWith('http') || 
+            this.getAttribute('href').includes('.html')) {
           return;
         }
         
@@ -1221,9 +1232,37 @@
           const elementPosition = targetElement.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
           
+          // Update URL without page reload
+          history.pushState(null, null, targetId);
+          
+          // Scroll to the target element
           window.scrollTo({
             top: offsetPosition,
             behavior: 'smooth'
+          });
+          
+          // Update active state
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = '#' + section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === sectionId) {
+              link.classList.add('active');
+            }
           });
         }
       });
