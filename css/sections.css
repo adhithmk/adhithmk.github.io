@@ -310,14 +310,49 @@
 
 /* Hero Section */
 .hero {
+  position: relative;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   align-items: center;
-  padding: 120px 0 80px;
-  position: relative;
+  justify-content: center;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.85) 100%),
-              url('../images/hero-bg.jpg') center/cover no-repeat;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.6) 100%),
+              url('../images/hero-bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  z-index: 2;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Ensure html and body have no default margins */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .hero::before {
@@ -327,17 +362,50 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(46, 139, 87, 0.1) 0%, rgba(0, 128, 128, 0.1) 100%);
-  z-index: 1;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
-  max-width: 800px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 2rem;
+  padding: 15vh 20px;
+  box-sizing: border-box;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+.hero .tagline {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .hero h1 {

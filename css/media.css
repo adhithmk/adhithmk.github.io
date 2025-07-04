@@ -101,7 +101,25 @@
   
   /* Adjust hero section */
   .hero {
-    padding: 100px 0 60px;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .hero-content {
+    padding: 100px 1rem 60px;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero .tagline {
+    font-size: 1.1rem;
+    max-width: 90%;
   }
   
   .hero h1 {
@@ -137,7 +155,25 @@
   
   /* Adjust hero section */
   .hero {
-    padding: 80px 0 50px;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .hero-content {
+    padding: 100px 1rem 60px;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero .tagline {
+    font-size: 1.1rem;
+    max-width: 90%;
   }
   
   .hero h1 {
@@ -190,7 +226,25 @@
   
   /* Adjust hero section */
   .hero {
-    padding: 70px 0 40px;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .hero-content {
+    padding: 100px 1rem 60px;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .hero .tagline {
+    font-size: 1.1rem;
+    max-width: 90%;
   }
   
   .hero h1 {

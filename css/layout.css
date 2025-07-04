@@ -244,6 +244,26 @@ body {
 .max-w-screen-md { max-width: 768px; }
 .max-w-screen-sm { max-width: 640px; }
 
+/* Broken Links */
+.broken-link {
+  position: relative;
+  color: #dc3545 !important;
+  text-decoration: line-through;
+}
+
+.broken-link::after {
+  content: '⚠️';
+  margin-left: 4px;
+  font-size: 0.8em;
+  vertical-align: middle;
+}
+
+.broken-link:hover::after {
+  content: ' (Broken Link)';
+  font-size: 0.9em;
+  color: #dc3545;
+}
+
 /* Position Utilities */
 .relative { position: relative; }
 .absolute { position: absolute; }
