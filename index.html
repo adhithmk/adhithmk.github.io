@@ -14,8 +14,8 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"></noscript>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
@@ -23,11 +23,23 @@
   <style>
     :root {
       --primary-color: #1e8449;
+      --primary: #2E8B57;
+      --secondary: #4a90e2;
       --text-color: #333;
+      --text: #333;
+      --text-light: #666;
       --light-gray: #f8f9fa;
+      --bg-light: #f8f9fa;
       --white: #ffffff;
+      --border: #e0e0e0;
       --border-radius: 8px;
+      --radius: 8px;
       --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --dark: #333;
+      --header-height: 70px;
+      --container-width: 1200px;
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -159,17 +171,70 @@
       transform: translateY(-9px) rotate(-45deg);
     }
 
+    /* Mobile Navigation */
+    @media (max-width: 992px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 80px 0;
+        transition: right 0.4s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
+      .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+      .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
+      .nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
+      .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
+      .nav-links.active li:nth-child(6) { transition-delay: 0.4s; }
+      .nav-links.active li:nth-child(7) { transition-delay: 0.45s; }
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+
     /* Hero Section */
     .hero {
-      background: url('images/heropic.png') center/contain no-repeat;
-      background-color: #f5f7fa; /* Fallback color */
-      background-size: auto 100%;
+      background: url('images/heropic.png') center/cover no-repeat;
+      background-color: var(--primary);
+      background-size: cover;
+      background-position: center;
       color: white;
-      padding: 420px 0 80px; /* Increased top padding further to 420px */
+      padding: 120px 0 80px;
       text-align: center;
       position: relative;
       overflow: hidden;
-      min-height: 780px; /* Increased further to accommodate the extra padding */
     }
 
     .hero::before {
@@ -179,7 +244,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.1);
       z-index: 0;
     }
 
@@ -251,6 +316,297 @@
       transform: translateY(-2px);
     }
 
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 5rem 0;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+    }
+
+    .about-image {
+      text-align: center;
+    }
+
+    .about-image img {
+      max-width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    /* Features Section */
+    .features-section {
+      padding: 5rem 0;
+      background-color: var(--bg-light);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .feature-description {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+
+    .cta-description {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--primary);
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .contact i {
+      color: var(--primary);
+    }
+
+    .footer-section.links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section.links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section.links a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section.links a:hover {
+      color: var(--white);
+    }
+
+    .footer-section.links i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .footer-menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+      color: var(--white);
+    }
+
+    .footer-menu span {
+      color: var(--text-light);
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
       .hero {
         padding: 150px 0 80px;
@@ -277,681 +633,56 @@
         width: 100%;
         justify-content: center;
       }
-    }
 
-    /* Mobile Navigation */
-    @media (max-width: 992px) {
-      .mobile-menu-toggle {
-        display: flex;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: var(--white);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 80px 0;
-        transition: right 0.4s ease;
-      }
-
-      .nav-links.active {
-        right: 0;
-      }
-
-      .nav-links li {
-        margin: 1.5rem 0;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: opacity 0.3s ease, transform 0.4s ease;
-      }
-
-      .nav-links.active li {
-        opacity: 1;
-        transform: translateX(0);
-      }
-
-      .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
-      .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
-      .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
-      .nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
-      .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
-      .nav-links.active li:nth-child(6) { transition-delay: 0.4s; }
-      .nav-links.active li:nth-child(7) { transition-delay: 0.45s; }
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 200px 0 100px;
-      background-color: var(--white);
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: var(--primary-color);
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #666;
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    /* Skills Section */
-    .skills-section {
-      padding: 100px 0;
-      background-color: var(--light-gray);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 60px;
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    /* Profile Section */
-    .profile-section {
-      padding: 5rem 0;
-      background-color: var(--white);
-    }
-
-    .profile-content {
-      display: flex;
-      align-items: center;
-      gap: 4rem;
-    }
-
-    .profile-image {
-      flex: 0 0 300px;
-    }
-
-    .profile-img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .profile-img:hover {
-      transform: translateY(-5px);
-    }
-
-    .profile-details {
-      flex: 1;
-    }
-
-    .profile-intro {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-
-    .profile-highlights {
-      margin: 2.5rem 0;
-    }
-
-    .highlight-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-    }
-
-    .highlight-item i {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      margin-right: 1.5rem;
-      margin-top: 0.3rem;
-    }
-
-    .highlight-item h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.3rem;
-      color: #333;
-    }
-
-    .highlight-item p {
-      color: #666;
-      margin: 0;
-    }
-
-    .profile-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-color), #27ae60);
-      color: white;
-      box-shadow: 0 4px 15px rgba(30, 132, 73, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(30, 132, 73, 0.4);
-    }
-
-    .btn-outline {
-      border: 2px solid var(--primary-color);
-      color: var(--primary-color);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--primary-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Interests Section */
-    .interests-section {
-      padding: 5rem 0;
-      background-color: #f9f9f9;
-    }
-
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .interests-card {
-      background: white;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .interests-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .section-subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      color: var(--primary-color);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-subtitle::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50px;
-      height: 3px;
-      background-color: var(--primary-color);
-    }
-
-    .interests-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .interest-tag {
-      display: inline-block;
-      background-color: #e8f5e9;
-      color: var(--primary-color);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: 1px solid #c8e6c9;
-    }
-
-    .interest-tag:hover {
-      background-color: var(--primary-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .interests-grid {
+      .about-content {
         grid-template-columns: 1fr;
-      }
-      
-      .profile-content {
-        flex-direction: column;
-        text-align: center;
+        gap: 2rem;
       }
 
-      .profile-image {
-        margin-bottom: 2rem;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .highlight-item {
-        justify-content: center;
-        text-align: left;
-      }
-
-      .profile-cta {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      
-      .btn {
-        width: 100%;
-      }
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      width: 80px;
-      height: 4px;
-      background-color: var(--primary-color);
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    .skills-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .skill-card {
-      background-color: var(--white);
-      border-radius: var(--border-radius);
-      padding: 30px;
-      box-shadow: var(--box-shadow);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .skill-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .skill-icon {
-      width: 40px;
-      height: 40px;
-      background-color: rgba(30, 132, 73, 0.1);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      color: var(--primary-color);
-      font-size: 1.2rem;
-    }
-
-    .skill-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin: 0;
-    }
-
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-top: 15px;
-    }
-
-    .skill-tag {
-      display: inline-block;
-      padding: 8px 20px;
-      background-color: rgba(30, 132, 73, 0.1);
-      color: var(--primary-color);
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s;
-      border: 1px solid rgba(30, 132, 73, 0.2);
-    }
-
-    .skill-tag:hover {
-      background-color: var(--primary-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #2c3e50;
-      color: white;
-      padding: 40px 0;
-      text-align: center;
-    }
-
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .social-links {
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      color: white;
-      margin: 0 10px;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #3498db;
-    }
-
-    /* Keyframes for animations */
-    @keyframes navItemFade {
-      from {
-        opacity: 0;
-        transform: translateX(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    
-    /* Prevent scrolling when mobile menu is open */
-    body.no-scroll {
-      overflow: hidden;
-      height: 100vh;
-    }
-
-    /* Footer Styles */
-    footer {
-      background: #2c3e50;
-      color: #ecf0f1;
-      padding: 60px 0 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-      color: #fff;
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .footer-section h3::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 50px;
-      height: 2px;
-      background: #1e8449;
-    }
-
-    .footer-section.about p {
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
-    .contact span {
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .contact i {
-      color: #1e8449;
-      margin-right: 10px;
-      width: 20px;
-      text-align: center;
-    }
-
-    .footer-section.links ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .footer-section.links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-section.links a {
-      color: #bdc3c7;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-    }
-
-    .footer-section.links a:hover {
-      color: #1e8449;
-      padding-left: 5px;
-    }
-
-    .footer-section.links i {
-      margin-right: 8px;
-      font-size: 0.8rem;
-      color: #1e8449;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #34495e;
-      color: #fff;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: #1e8449;
-      transform: translateY(-3px);
-    }
-
-    .newsletter p {
-      margin-bottom: 15px;
-    }
-
-    .newsletter-form {
-      display: flex;
-    }
-
-    .newsletter-form input {
-      flex: 1;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px 0 0 4px;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .newsletter-form button {
-      background: #1e8449;
-      color: white;
-      border: none;
-      padding: 0 15px;
-      border-radius: 0 4px 4px 0;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    .newsletter-form button:hover {
-      background: #27ae60;
-    }
-
-    .footer-bottom {
-      background: #1a252f;
-      padding: 20px 0;
-      text-align: center;
-      border-top: 1px solid #34495e;
-    }
-
-    .footer-bottom p {
-      margin: 0 0 10px;
-      color: #95a5a6;
-      font-size: 0.9rem;
-    }
-
-    .footer-menu {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .footer-menu a {
-      color: #95a5a6;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s ease;
-    }
-
-    .footer-menu a:hover {
-      color: #1e8449;
-    }
-
-    .footer-menu span {
-      color: #95a5a6;
-    }
-
-    /* Responsive Footer */
-    @media (max-width: 768px) {
-      .footer-content {
+      .features-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
+        gap: 1.5rem;
       }
 
-      .footer-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .contact span {
-        justify-content: center;
-      }
-
-      .social-links {
-        justify-content: center;
-      }
-
-      .footer-section.links ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .footer-section.links li {
-        text-align: center;
-      }
-
-      .newsletter-form {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-section {
-        padding: 0 15px;
-      }
-
-      .footer-bottom {
-        padding: 15px 10px;
-      }
-
-      .footer-menu {
-        flex-direction: column;
-        gap: 5px;
-      }
-
-      .footer-menu span {
-        display: none;
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 992px) {
-      .hero {
-        padding: 160px 0 80px;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
+      .feature-card {
+        padding: 1.5rem;
       }
 
       .section-title {
         font-size: 2rem;
       }
+    }
 
-      .skill-card {
-        padding: 20px;
+    @media (max-width: 480px) {
+      .hero {
+        padding: 120px 0 60px;
       }
 
-      .skills-grid {
-        gap: 10px;
+      .hero h1 {
+        font-size: 2rem;
       }
 
-      .skill-tag {
-        padding: 6px 15px;
-        font-size: 0.8rem;
+      .hero h2 {
+        font-size: 1.3rem;
       }
 
-      nav ul {
-        display: none;
+      .hero .tagline {
+        font-size: 1rem;
+      }
+
+      .feature-card {
+        padding: 1.25rem;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
       }
     }
   </style>
-    <link rel="stylesheet" href="css/navigation.css">
 </head>
 <body>
   <!-- Navigation -->
@@ -971,131 +702,121 @@
         <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
         <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
         <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
-        <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Adhith M K</h1>
+      <h2>Ecological Informatics & Wildlife Conservation Researcher</h2>
+      <p class="tagline">Passionate about understanding ecosystems through data-driven approaches and innovative acoustic monitoring techniques to protect biodiversity.</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn btn-outline-light">
+          <i class="fas fa-user"></i>
+          About Me
+        </a>
+        <a href="contact.html" class="btn btn-primary">
+          <i class="fas fa-envelope"></i>
+          Get In Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about">
     <div class="container">
-      <div class="hero-content">
-        <h1>Adhith M K</h1>
-        <h2>Ecological Informatics Researcher</h2>
-        <p class="tagline">Wildlife Conservation | Ecosystem Restoration | Sustainable Development</p>
-        <div class="hero-buttons">
-          <a href="research.html" class="btn btn-primary">
-            <i class="fas fa-flask"></i> View My Research
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>I'm an ecological informatics researcher specializing in wildlife conservation, bioacoustics, and data-driven ecosystem analysis. My work focuses on understanding complex ecological relationships through innovative monitoring techniques and computational approaches.</p>
+          <p>With a strong foundation in both field research and data science, I bridge the gap between traditional ecology and modern technology. My research interests include soundscape ecology, species distribution modeling, and the application of machine learning in wildlife monitoring.</p>
+          <p>I'm committed to contributing to conservation efforts through rigorous scientific research and the development of practical solutions for biodiversity protection and ecosystem management.</p>
+          <p style="margin-top: 1rem; padding: 1rem 1.5rem; background: linear-gradient(135deg, rgba(46, 139, 87, 0.08), rgba(74, 144, 226, 0.08)); border-left: 3px solid var(--primary); border-radius: 0 8px 8px 0; color: var(--text);">
+            <i class="fas fa-briefcase" style="color: var(--primary); margin-right: 0.5rem;"></i>
+            <strong>Current Position:</strong> Field Assistant at the Bird Lab, IISER Tirupati
+          </p>
+          <a href="pdf/Adhith_CV.pdf" class="btn btn-outline" download style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; border: 2px solid var(--primary); color: var(--primary); padding: 0.75rem 1.5rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; background: transparent;">
+            <i class="fas fa-download"></i>
+            Download CV
           </a>
-          <a href="contact.html" class="btn btn-outline-light">
-            <i class="fas fa-envelope"></i> Contact Me
-          </a>
+        </div>
+        <div class="about-image">
+          <img src="images/Profilepic.jpg" alt="Adhith M K" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Profile Section -->
-  <section class="profile-section" id="about">
+  <!-- Features Section -->
+  <section class="features-section">
     <div class="container">
-      <div class="profile-content">
-        <div class="profile-image">
-          <img src="images/Profilepic.jpg" alt="Adhith M K" class="profile-img">
+      <h2 class="section-title">Research Focus Areas</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3 class="feature-title">Bioacoustics</h3>
+          <p class="feature-description">Advanced acoustic monitoring and analysis of wildlife sounds to understand species behavior, distribution, and ecosystem health.</p>
         </div>
-        <div class="profile-details">
-          <h2 class="section-title">About Me</h2>
-          <p class="profile-intro">
-            An ecological researcher specializing in Ecological Informatics with a strong foundation in Wildlife Conservation and Management. Currently pursuing a Master's in Ecology at Kerala University of Digital Sciences, Innovation and Technology, combining ecological knowledge with modern computational approaches.
-          </p>
-          <p class="profile-intro">
-            Experienced in biodiversity assessment and field research, with technical proficiency in R, Python, and GIS. Passionate about using data-driven approaches for wildlife conservation, ecosystem restoration, and sustainable development.
-          </p>
-          <div class="profile-highlights">
-            <div class="highlight-item">
-              <i class="fas fa-graduation-cap"></i>
-              <div>
-                <h4>Education</h4>
-                <p>Master's in Ecology, Kerala University of Digital Sciences, Innovation and Technology</p>
-              </div>
-            </div>
 
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
           </div>
-          <div class="profile-cta">
-            <a href="pdf/Adhith_CV.pdf" class="btn btn-primary" id="download-cv" download>
-              <i class="fas fa-download"></i> Download CV
-            </a>
+          <h3 class="feature-title">Ecological Data Analysis</h3>
+          <p class="feature-description">Statistical analysis and modeling of ecological data using R, Python, and advanced machine learning techniques.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-map"></i>
           </div>
+          <h3 class="feature-title">GIS & Spatial Analysis</h3>
+          <p class="feature-description">Geographic Information Systems applications for habitat mapping, species distribution, and conservation planning.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-paw"></i>
+          </div>
+          <h3 class="feature-title">Wildlife Conservation</h3>
+          <p class="feature-description">Field-based research and conservation initiatives focused on protecting endangered species and their habitats.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="feature-title">Biodiversity Assessment</h3>
+          <p class="feature-description">Comprehensive evaluation of ecosystem biodiversity using modern survey techniques and data integration.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3 class="feature-title">Computational Ecology</h3>
+          <p class="feature-description">Development of innovative computational tools and algorithms for ecological research and conservation.</p>
         </div>
       </div>
     </div>
   </section>
 
-
-  <!-- Technical Skills Section -->
-  <section class="skills-section" id="skills">
+  <!-- CTA Section -->
+  <section class="cta-section">
     <div class="container">
-      <h2 class="section-title">Technical Skills</h2>
-      
-      <div class="skills-container">
-        <!-- Programming & Analysis Card -->
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3 class="skill-title">Programming & Analysis</h3>
-          </div>
-          <div class="skills-grid">
-            <span class="skill-tag">R Programming</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">LaTeX</span>
-            <span class="skill-tag">QGIS</span>
-            <span class="skill-tag">ArcGIS</span>
-            <span class="skill-tag">Google Earth Engine</span>
-            <span class="skill-tag">Deep Learning</span>
-            <span class="skill-tag">Machine Learning</span>
-            <span class="skill-tag">Image Processing</span>
-            <span class="skill-tag">Data Visualization</span>
-          </div>
-        </div>
-
-        <!-- Software & Tools Card -->
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-tools"></i>
-            </div>
-            <h3 class="skill-title">Software & Tools</h3>
-          </div>
-          <div class="skills-grid">
-            <span class="skill-tag">RStudio</span>
-            <span class="skill-tag">Jupyter Notebook</span>
-            <span class="skill-tag">Google Colab</span>
-            <span class="skill-tag">Microsoft Office</span>
-            <span class="skill-tag">Google Workspace</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-          </div>
-        </div>
-
-        <!-- Field Techniques Card -->
-        <div class="skill-card">
-          <div class="skill-header">
-            <div class="skill-icon">
-              <i class="fas fa-hiking"></i>
-            </div>
-            <h3 class="skill-title">Field Techniques</h3>
-          </div>
-          <div class="skills-grid">
-            <span class="skill-tag">Bird Watching</span>
-            <span class="skill-tag">Species Identification</span>
-            <span class="skill-tag">GPS Navigation</span>
-            <span class="skill-tag">Data Collection</span>
-            <span class="skill-tag">Field Sampling</span>
-            <span class="skill-tag">Acoustic Monitoring</span>
-            <span class="skill-tag">Habitat Assessment</span>
-          </div>
-        </div>
+      <div class="cta-content">
+        <h2 class="cta-title">Let's Collaborate</h2>
+        <p class="cta-description">Interested in ecological research, conservation projects, or data analysis collaborations? I'm always open to discussing new opportunities and sharing insights.</p>
+        <a href="#contact" class="cta-button">
+          <i class="fas fa-envelope"></i>
+          Contact Me
+        </a>
       </div>
     </div>
   </section>
@@ -1108,7 +829,7 @@
           <h3>Adhith M K</h3>
           <p>Ecological Informatics Researcher passionate about wildlife conservation and sustainable development through data-driven approaches.</p>
           <div class="contact">
-            <span><i class="fas fa-envelope"></i> theadhith@gmail.com</span>
+            <span><i class="fas fa-envelope"></i> adhith@gmail.com</span>
             <span><i class="fas fa-map-marker-alt"></i> Kerala, India</span>
           </div>
         </div>
@@ -1146,7 +867,7 @@
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2023 Adhith M K. All rights reserved.</p>
+        <p>&copy; 2024 Adhith M K. All rights reserved.</p>
         <div class="footer-menu">
           <a href="#">Privacy Policy</a>
           <span>|</span>
@@ -1208,8 +929,7 @@
             link.classList.add('active');
           }
         }
-      } else if (linkHref === 'index.html' && window.location.pathname.endsWith('index.html') || 
-                 window.location.pathname === '/') {
+      } else if (linkHref === 'index.html' && window.location.pathname.endsWith('index.html')) {
         link.classList.add('active');
       }
     });

@@ -14,523 +14,685 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"></noscript>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        :root {
-            --primary: #2E8B57;
-            --primary-light: #3da86a;
-            --secondary: #4a90e2;
-            --text: #2c3e50;
-            --text-light: #6c757d;
-            --text-lighter: #95a5a6;
-            --bg-light: #f8f9fa;
-            --border: #e9ecef;
-            --card-bg: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: #f9fafb;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1.25rem;
-            line-height: 1.2;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 3px;
-        }
-        
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 1.5rem auto 0;
-            line-height: 1.7;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3.5rem;
-        }
-        
-        .blog-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-        
-        .blog-image-container {
-            position: relative;
-            padding-top: 60%; /* Slightly taller aspect ratio */
-            overflow: hidden;
-            background: #f5f7fa;
-        }
-        
-        .blog-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .blog-image {
-            transform: scale(1.05);
-            opacity: 0.95;
-        }
-        
-        .blog-category {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            background: var(--primary);
-            color: white;
-            font-size: 0.7rem;
-            font-weight: 600;
-            padding: 0.35rem 1rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 2;
-            transition: var(--transition);
-        }
-        
-        .blog-card:hover .blog-category {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-        
-        .blog-content {
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            border-top: 1px solid rgba(0, 0, 0, 0.03);
-        }
-        
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-lighter);
-        }
-        
-        .blog-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        
-        .blog-date i {
-            font-size: 0.7rem;
-            color: var(--primary);
-        }
-        
-        .blog-content h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin: 0 0 1rem 0;
-            line-height: 1.4;
-            letter-spacing: -0.3px;
-        }
-        
-        .blog-content h3 a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            background: linear-gradient(to right, var(--primary), var(--primary) 50%, var(--text) 50%);
-            background-size: 200% 100%;
-            background-position: 100%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            transition: all 0.3s ease;
-        }
-        
-        .blog-card:hover h3 a {
-            background-position: 0%;
-        }
-        
-        .blog-excerpt {
-            color: var(--text-light);
-            margin-bottom: 1.75rem;
-            flex-grow: 1;
-            line-height: 1.7;
-            font-size: 0.98rem;
-        }
-        
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: var(--transition);
-            margin-top: auto;
-            width: fit-content;
-            position: relative;
-            padding-bottom: 3px;
-        }
-        
-        .read-more::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-            transform: scaleX(0.7);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-            opacity: 0.5;
-        }
-        
-        .read-more i {
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .blog-card:hover .read-more {
-            color: var(--primary-light);
-        }
-        
-        .blog-card:hover .read-more::after {
-            transform: scaleX(1);
-            opacity: 1;
-        }
-        
-        .blog-card:hover .read-more i {
-            transform: translateX(4px);
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 3rem;
-        }
-        
-        .pagination a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            background: white;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: 1px solid var(--border);
-            font-size: 0.95rem;
-        }
-        
-        .pagination a:not(.active):hover {
-            background: var(--bg-light);
-            border-color: var(--border);
-            transform: translateY(-2px);
-        }
-        
-        .pagination a.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.3);
-        }
-        
-        .pagination a i {
-            font-size: 0.7rem;
-        }
-        
-        @media (max-width: 1024px) {
-            .blog-grid {
-                gap: 2rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .section {
-                padding: 4rem 0;
-            }
-            
-            .section-header {
-                margin-bottom: 3rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .blog-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin: 2.5rem 0;
-            }
-            
-            .blog-content {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .section-title {
-                font-size: 1.75rem;
-            }
-            
-            .page-subtitle {
-                font-size: 1rem;
-            }
-            
-            .blog-meta {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-            }
-        }
-        
-        /* Footer Styles */
-        .footer {
-            background: #2c3e50;
-            color: #fff;
-            padding: 4rem 0 0;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .footer-about h3 {
-            color: #fff;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .footer-about p {
-            color: #bdc3c7;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: #fff;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: #2E8B57;
-            transform: translateY(-3px);
-        }
-        
-        .footer-links h4, 
-        .footer-contact h4 {
-            color: #fff;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-        
-        .footer-links h4:after,
-        .footer-contact h4:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: #2E8B57;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #2E8B57;
-            padding-left: 5px;
-        }
-        
-        .footer-contact p {
-            color: #bdc3c7;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            line-height: 1.6;
-        }
-        
-        .footer-contact i {
-            color: #2E8B57;
-            margin-right: 10px;
-            margin-top: 4px;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding: 1.5rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .footer-bottom p {
-            margin: 0.5rem 0;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-        }
-        
-        .footer-legal {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .footer-legal a {
-            color: #7f8c8d;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-legal a:hover {
-            color: #2E8B57;
-        }
-        
-        .footer-legal span {
-            color: #7f8c8d;
-        }
-        
-        @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .newsletter-form input {
-                border-radius: 4px;
-                margin-bottom: 0.5rem;
-            }
-            
-            .newsletter-form .btn {
-                border-radius: 4px;
-                width: 100%;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="css/navigation.css">
+  <style>
+    :root {
+      --primary-color: #1e8449;
+      --primary: #2E8B57;
+      --secondary: #4a90e2;
+      --text-color: #333;
+      --text: #333;
+      --text-light: #666;
+      --light-gray: #f8f9fa;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --border: #e0e0e0;
+      --border-radius: 8px;
+      --radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --dark: #333;
+      --header-height: 70px;
+      --container-width: 1200px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f7fa;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      height: var(--header-height);
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--dark);
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--dark);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 992px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 80px 0;
+        transition: right 0.4s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
+      .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+      .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
+      .nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
+      .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
+      .nav-links.active li:nth-child(6) { transition-delay: 0.4s; }
+      .nav-links.active li:nth-child(7) { transition-delay: 0.45s; }
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Blog Page Layout */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-image, .blog-card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    .blog-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blog-card-image .blog-category {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    .blog-card:hover .blog-image,
+    .blog-card:hover .blog-card-image img {
+      transform: scale(1.05);
+    }
+
+    .blog-content, .blog-card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .blog-category {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .blog-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+      min-height: 3.4rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-excerpt {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      min-height: 4.8rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .blog-date {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blog-date i {
+      color: var(--primary);
+    }
+
+    .blog-author, .blog-read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .blog-author i, .blog-read-time i {
+      color: var(--primary);
+    }
+
+    .blog-link, .blog-read-more {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s ease;
+      margin-top: auto;
+    }
+
+    .blog-link:hover,
+    .blog-read-more:hover {
+      gap: 0.75rem;
+    }
+
+    /* Blog Categories */
+    .blog-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .category-btn {
+      background: white;
+      border: 2px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Pagination */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+    }
+
+    .page-btn {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .page-btn:hover,
+    .page-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Featured Post */
+    .featured-post {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 3rem;
+      border-radius: var(--radius);
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-post::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: 0;
+    }
+
+    .featured-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .featured-post h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .featured-post p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .featured-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: white;
+      color: var(--primary);
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .featured-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .contact i {
+      color: var(--primary);
+    }
+
+    .footer-section.links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section.links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section.links a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section.links a:hover {
+      color: var(--white);
+    }
+
+    .footer-section.links i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .footer-menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+      color: var(--white);
+    }
+
+    .footer-menu span {
+      color: var(--text-light);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 0;
+      }
+
+      .page-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .blog-card {
+        padding: 1rem;
+      }
+
+      .blog-title {
+        font-size: 1.2rem;
+      }
+
+      .featured-post {
+        padding: 2rem;
+      }
+
+      .featured-post h2 {
+        font-size: 1.5rem;
+      }
+
+      .featured-post p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .blog-card {
+        padding: 1.25rem;
+      }
+
+      .blog-title {
+        font-size: 1.1rem;
+      }
+
+      .blog-categories {
+        gap: 0.5rem;
+      }
+
+      .category-btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    
+  <!-- Navigation -->
+  
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">Adhith M K</a>
@@ -543,7 +705,7 @@
         <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="research.html" class="nav-link"><i class="fas fa-flask"></i> Research</a></li>
         <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications & Awards</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
         <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
         <li><a href="blog.html" class="nav-link active"><i class="fas fa-blog"></i> Blog</a></li>
         <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -551,192 +713,416 @@
     </div>
   </nav>
 
-    <!-- Blog Section -->
-    <section class="section">
-        <div class="container">
-            <header class="section-header">
-                <h1 class="section-title">Blog</h1>
-                <p class="section-subtitle">Insights, tutorials, and updates on ecological informatics, acoustic ecology, and environmental monitoring.</p>
-            </header>
+  <!-- Blog Section -->
+  <section class="section" id="blog">
+    <div class="container">
+      <h1 class="page-title">Blog</h1>
+      
+      <!-- Blog Categories -->
+      <div class="blog-categories">
+        <button class="category-btn active">All Posts</button>
+        <button class="category-btn">Research</button>
+        <button class="category-btn">Field Work</button>
+        <button class="category-btn">Conservation</button>
+        <button class="category-btn">Technology</button>
+      </div>
 
-            <div class="blog-grid">
-                <!-- Blog Post 1 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/gis-analysis.jpg" alt="GIS Analysis" class="blog-image">
-                        <span class="blog-category">Tutorial</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> June 15, 2024</span>
-                        </div>
-                        <h3><a href="#">Getting Started with QGIS for Ecological Research</a></h3>
-                        <p class="blog-excerpt">Learn the basics of QGIS and how to use it for ecological research and spatial analysis. This guide covers installation, basic tools, and practical examples.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 2 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/acoustic-monitoring.jpg" alt="Acoustic Monitoring" class="blog-image">
-                        <span class="blog-category">Research</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> May 28, 2024</span>
-                        </div>
-                        <h3><a href="#">Advancements in Acoustic Monitoring Technology</a></h3>
-                        <p class="blog-excerpt">Exploring the latest developments in acoustic monitoring equipment and software for biodiversity assessment and conservation efforts.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 3 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/field-research.jpg" alt="Field Research" class="blog-image">
-                        <span class="blog-category">Field Work</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> May 10, 2024</span>
-                        </div>
-                        <h3><a href="#">Best Practices for Field Data Collection</a></h3>
-                        <p class="blog-excerpt">Essential tips and techniques for collecting accurate and reliable data during ecological field research expeditions.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 4 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/data-visualization.jpg" alt="Data Visualization" class="blog-image">
-                        <span class="blog-category">Tutorial</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> April 22, 2024</span>
-                        </div>
-                        <h3><a href="#">Effective Data Visualization in R</a></h3>
-                        <p class="blog-excerpt">A comprehensive guide to creating publication-quality data visualizations using R and ggplot2 for ecological and environmental data.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 5 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/species-identification.jpg" alt="Species Identification" class="blog-image">
-                        <span class="blog-category">Research</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> April 5, 2024</span>
-                        </div>
-                        <h3><a href="#">Machine Learning for Automated Species Identification</a></h3>
-                        <p class="blog-excerpt">How machine learning is revolutionizing species identification from camera trap images and acoustic recordings.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-
-                <!-- Blog Post 6 -->
-                <article class="blog-card">
-                    <div class="blog-image-container">
-                        <img src="images/blog/conservation-tech.jpg" alt="Conservation Technology" class="blog-image">
-                        <span class="blog-category">Technology</span>
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date"><i class="far fa-calendar"></i> March 18, 2024</span>
-                        </div>
-                        <h3><a href="#">Emerging Technologies in Conservation</a></h3>
-                        <p class="blog-excerpt">Exploring cutting-edge technologies being used in wildlife conservation and environmental monitoring around the world.</p>
-                        <a href="/404.html" class="read-more">Read article <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
+      <!-- Blog Grid -->
+      <div class="blog-grid">
+        <!-- Blog Post 1 -->
+        <article class="blog-card">
+          <img src="images/blog/bioacoustics-future.jpg" alt="Bioacoustics Research" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Research</span>
+            <h3 class="blog-title">Introduction to Soundscape Ecology</h3>
+            <p class="blog-excerpt">Discover how soundscape ecology is transforming our understanding of ecosystems through the study of environmental sounds and their ecological significance.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Nov 15, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
             </div>
+            <a href="blog/posts/introduction-soundscape-ecology.html" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
 
-            <!-- Pagination -->
-            <div class="pagination">
-                <a href="#" class="active">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#" aria-label="Next page"><i class="fas fa-chevron-right"></i></a>
+        <!-- Blog Post 2 -->
+        <article class="blog-card">
+          <img src="images/blog/citizen-science.jpg" alt="Citizen Science" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Conservation</span>
+            <h3 class="blog-title">Citizen Science in Wildlife Monitoring</h3>
+            <p class="blog-excerpt">Learn how citizen science initiatives are empowering communities to contribute to wildlife conservation and biodiversity monitoring efforts.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Oct 28, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
             </div>
+            <a href="blog/posts/citizen-science-wildlife-monitoring.html" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post 3 -->
+        <article class="blog-card">
+          <img src="images/blog/r-ecology.jpg" alt="R for Ecological Data" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Technology</span>
+            <h3 class="blog-title">R for Ecological Data Analysis</h3>
+            <p class="blog-excerpt">A comprehensive guide to using R programming language for analyzing ecological data, from basic statistics to advanced visualization techniques.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Oct 10, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
+            </div>
+            <a href="blog/posts/r-ecological-data-analysis.html" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post 4 -->
+        <article class="blog-card">
+          <img src="images/blog/blog-placeholder.jpg" alt="Field Research" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Field Work</span>
+            <h3 class="blog-title">Field Methods in Acoustic Monitoring</h3>
+            <p class="blog-excerpt">Essential techniques and best practices for setting up acoustic monitoring stations in the field for wildlife research.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Sep 22, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
+            </div>
+            <a href="#" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post 5 -->
+        <article class="blog-card">
+          <img src="images/blog/blog-placeholder.jpg" alt="GIS Analysis" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Technology</span>
+            <h3 class="blog-title">GIS Applications in Conservation</h3>
+            <p class="blog-excerpt">How Geographic Information Systems are being used to map habitats, track species movements, and inform conservation decisions.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Sep 5, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
+            </div>
+            <a href="#" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <!-- Blog Post 6 -->
+        <article class="blog-card">
+          <img src="images/blog/blog-placeholder.jpg" alt="Biodiversity Assessment" class="blog-image">
+          <div class="blog-content">
+            <span class="blog-category">Research</span>
+            <h3 class="blog-title">Biodiversity Assessment Methods</h3>
+            <p class="blog-excerpt">Modern techniques for assessing and monitoring biodiversity in various ecosystems, from traditional surveys to technological approaches.</p>
+            <div class="blog-meta">
+              <span class="blog-date">
+                <i class="far fa-calendar-alt"></i>
+                Aug 18, 2023
+              </span>
+              <span class="blog-author">
+                <i class="fas fa-user"></i>
+                Adhith M K
+              </span>
+            </div>
+            <a href="#" class="blog-link">
+              Read More
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">Next</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>Adhith M K</h3>
+          <p>Ecological Informatics Researcher passionate about wildlife conservation and sustainable development through data-driven approaches.</p>
+          <div class="contact">
+            <span><i class="fas fa-envelope"></i> adhith@gmail.com</span>
+            <span><i class="fas fa-map-marker-alt"></i> Kerala, India</span>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>Adhith M K</h3>
-                    <p>Ecological Informatics & Acoustic Ecology Researcher</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
-                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="research.html">Research & Publications</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
-                        <li><a href="field-work.html">Field Work</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Get In Touch</h4>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
-
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> Adhith M K. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <span>|</span>
-                    <a href="#">Terms of Use</a>
-                </div>
-            </div>
+        
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="research.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+            <li><a href="education.html"><i class="fas fa-chevron-right"></i> Education</a></li>
+            <li><a href="field-work.html"><i class="fas fa-chevron-right"></i> Field Work</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
         </div>
-    </footer>
+        
+        <div class="footer-section social">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky">
+              <i class="fas fa-cloud"></i>
+            </a>
+            <a href="#" aria-label="ResearchGate">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="#" aria-label="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Adhith M K. All rights reserved.</p>
+        <div class="footer-menu">
+          <a href="#">Privacy Policy</a>
+          <span>|</span>
+          <a href="#">Terms & Conditions</a>
+          <span>|</span>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li');
     
-
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-    <script>
-        // Update current year in footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const currentYear = new Date().getFullYear();
-            const yearElement = document.getElementById('current-year');
-            if (yearElement) {
-                yearElement.textContent = currentYear;
-            }
-            
-            // Mobile menu toggle functionality
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            
-            if (mobileMenuToggle && navLinks) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-            }
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+      
+      // Animate nav items
+      if (navLinks.classList.contains('active')) {
+        navItems.forEach((item, index) => {
+          item.style.animation = `navItemFade 0.5s ease forwards ${index / 7 + 0.1}s`;
         });
-    </script>
-  <!-- Link Validator -->
-  <script src="/js/link-validator.js"></script>
+      } else {
+        navItems.forEach(item => {
+          item.style.animation = '';
+        });
+      }
+    });
+    
+    // Close mobile menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkHref = link.getAttribute('href');
+      // Remove active class from all links first
+      link.classList.remove('active');
+      
+      // Add active class to current section based on scroll position
+      if (linkHref.startsWith('#')) {
+        const section = document.querySelector(linkHref);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            link.classList.add('active');
+          }
+        }
+      } else if (linkHref === 'blog.html' && window.location.pathname.endsWith('blog.html')) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Don't prevent default for external links or non-anchor links
+        if (this.getAttribute('href').startsWith('http') || 
+            this.getAttribute('href').includes('.html')) {
+          return;
+        }
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#' || targetId === '') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Update URL without page reload
+          history.pushState(null, null, targetId);
+          
+          // Scroll to the target element
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = '#' + section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+    
+    // Header scroll effect
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Add/remove scrolled class for header style change
+      if (currentScroll > 20) {
+        navbar.style.padding = '0.5rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '1rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+      }
+      
+      // Hide/show header on scroll
+      if (currentScroll <= 0) {
+        navbar.classList.remove('scroll-up');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+        // Scroll Down
+        navbar.classList.remove('scroll-up');
+        navbar.classList.add('scroll-down');
+      } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+        // Scroll Up
+        navbar.classList.remove('scroll-down');
+        navbar.classList.add('scroll-up');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Blog Category Filter
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.textContent;
+        
+        // Filter blog cards (simplified for demo)
+        blogCards.forEach(card => {
+          if (category === 'All Posts') {
+            card.style.display = 'flex';
+          } else {
+            // In a real implementation, you would filter by category
+            card.style.display = 'flex';
+          }
+        });
+      });
+    });
+
+    // Pagination - redirect to 404 for non-existent pages
+    const pageBtns = document.querySelectorAll('.page-btn');
+    
+    pageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Redirect to non-existent page to trigger 404
+        window.location.href = '/blog/page-not-found.html';
+      });
+    });
+  </script>
+  <script src="js/blog.js"></script>
+  <script src="404-handler.js"></script>
 </body>
 </html>

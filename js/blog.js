@@ -43,18 +43,25 @@ function displayBlogPosts(posts) {
     // Generate HTML for each post
     const postsHTML = recentPosts.map(post => `
         <article class="blog-card">
-            <div class="blog-card-image">
-                <img src="${post.image || 'images/blog-placeholder.jpg'}" alt="${post.title}">
-                <div class="blog-category">${post.category}</div>
-            </div>
-            <div class="blog-card-content">
-                <div class="blog-meta">
-                    <span class="blog-date">${formatDate(post.date)}</span>
-                    <span class="blog-read-time">${post.read_time || '5 min read'}</span>
-                </div>
+            <img src="${post.image || 'images/blog-placeholder.jpg'}" alt="${post.title}" class="blog-image">
+            <div class="blog-content">
+                <span class="blog-category">${post.category}</span>
                 <h3 class="blog-title">${post.title}</h3>
                 <p class="blog-excerpt">${post.excerpt}</p>
-                <a href="blog/${post.slug}.html" class="blog-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                <div class="blog-meta">
+                    <span class="blog-date">
+                        <i class="far fa-calendar-alt"></i>
+                        ${formatDate(post.date)}
+                    </span>
+                    <span class="blog-read-time">
+                        <i class="far fa-clock"></i>
+                        ${post.read_time || '5 min read'}
+                    </span>
+                </div>
+                <a href="blog/${post.slug}.html" class="blog-link">
+                    Read More
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </article>
     `).join('');

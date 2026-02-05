@@ -1,1 +1,2 @@
-/* /404.html 404
+# Redirects for specific pages if needed
+# Example: /old-page /new-page

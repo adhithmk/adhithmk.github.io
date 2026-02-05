@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#2E8B57">
-    <title>Research & Publications | Adhith M K</title>
+    <title>Research & Publications | Adhith M K - Ecological Informatics & Acoustic Ecology</title>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,453 +14,662 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"></noscript>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --primary-color: #1e8449;
+      --primary: #2E8B57;
+      --secondary: #4a90e2;
+      --text-color: #333;
+      --text: #333;
+      --text-light: #666;
+      --light-gray: #f8f9fa;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --border: #e0e0e0;
+      --border-radius: 8px;
+      --radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --dark: #333;
+      --header-height: 70px;
+      --container-width: 1200px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f7fa;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      height: var(--header-height);
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--dark);
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--dark);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 992px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 80px 0;
+        transition: right 0.4s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
+      .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+      .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
+      .nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
+      .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
+      .nav-links.active li:nth-child(6) { transition-delay: 0.4s; }
+      .nav-links.active li:nth-child(7) { transition-delay: 0.45s; }
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Page Layout */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    /* Project Cards */
+    .project-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-card h3 {
+      color: var(--text);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .project-card h4 {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .project-card p {
+      color: var(--text-light);
+      line-height: 1.7;
+      margin: 1rem 0;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-date, .project-role, .project-location {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-date i, 
+    .project-role i, 
+    .project-location i {
+      color: var(--primary);
+      width: 16px;
+      text-align: center;
+    }
+
+    .project-highlights {
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .project-highlights li {
+      margin-bottom: 0.7rem;
+      color: var(--text-light);
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .project-highlights li::before {
+      content: '\f00c';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      color: var(--primary);
+      position: absolute;
+      left: -1.5rem;
+    }
+
+    .project-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .project-skills span {
+      background: rgba(46, 139, 87, 0.1);
+      color: var(--primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-size: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .bg-light {
+      background-color: var(--bg-light);
+    }
+
+    /* Publications Section Styles */
+    .publication-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      gap: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .publication-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .publication-icon {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+
+    .publication-content {
+      flex: 1;
+    }
+
+    .publication-content h3 {
+      color: var(--text);
+      margin: 0 0 1.5rem;
+      font-size: 1.4rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .publication-item {
+      display: flex;
+      gap: 1.2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .publication-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .publication-item i {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-top: 0.3rem;
+    }
+
+    .publication-details {
+      flex: 1;
+    }
+
+    .publication-item h4 {
+      margin: 0 0 0.5rem;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .publication-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0.5rem 0 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .publication-meta i {
+      margin-right: 0.3rem;
+      font-size: 0.9em;
+    }
+
+    .publication-venue,
+    .publication-description {
+      margin: 0.5rem 0 0;
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .publication-venue i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    /* Work Experience Font Styling */
+    .highlight-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .highlight-item p {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-menu a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    .footer-menu a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .publication-card {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+
+      .publication-icon {
+        margin-bottom: 1rem;
+      }
+
+      .publication-meta {
+        gap: 0.75rem 1.5rem;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+
+      .page-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .project-card {
+        padding: 1.5rem;
+      }
+
+      .project-meta {
+        gap: 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+      }
+
+      .project-date, .project-role, .project-location {
+        font-size: 0.95rem;
+      }
+
+      .project-skills {
+        gap: 0.5rem;
+      }
+
+      .project-skills span {
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .project-card {
+        padding: 1.25rem;
+      }
+
+      .project-card h3 {
+        font-size: 1.3rem;
+      }
+
+      .project-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .project-description {
+        padding-left: 1rem;
+        margin: 1.25rem 0;
+      }
+
+      .project-links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  </style>
     <link rel="stylesheet" href="css/navigation.css">
-    <style>
-        /* Modern Minimalist Research Styles */
-        :root {
-            --primary: #2E8B57;
-            --secondary: #4a90e2;
-            --text: #2c3e50;
-            --text-light: #6c757d;
-            --bg-light: #f8f9fa;
-            --border: #e9ecef;
-            --card-bg: #ffffff;
-            --shadow: 0 2px 8px rgba(0,0,0,0.05);
-            --radius: 8px;
-        }
-        
-        body {
-            background-color: #fff;
-            color: var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .page-title {
-            text-align: center;
-            margin: 0 0 4rem;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: all 0.2s ease;
-        }
-        
-        .project-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-            transform: translateY(-2px);
-        }
-        
-        .project-content {
-            padding: 0;
-        }
-        
-        .project-card h3 {
-            color: var(--text);
-            margin: 0 0 1rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .project-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .project-date, .project-role, .project-location {
-            color: var(--text-light);
-            font-size: 1rem;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .project-date i, 
-        .project-role i, 
-        .project-location i {
-            color: var(--primary);
-            width: 16px;
-            text-align: center;
-        }
-        
-        .project-card p {
-            color: #555;
-            line-height: 1.7;
-            margin: 1rem 0;
-        }
-        
-        .project-highlights {
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .project-highlights li {
-            margin-bottom: 0.7rem;
-            color: #495057;
-            position: relative;
-            line-height: 1.5;
-        }
-        
-        .project-highlights li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: #2E8B57;
-            position: absolute;
-            left: -1.5rem;
-        }
-        
-        .project-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.7rem;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .project-skills span {
-            background: rgba(46, 139, 87, 0.1);
-            color: #2E8B57;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            font-size: 2rem;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #2E8B57, #4a90e2);
-            border-radius: 2px;
-        }
-        
-        .bg-light {
-            background-color: #f8f9fa;
-        }
-        
-        .project-description {
-            color: var(--text-light);
-            line-height: 1.7;
-            margin: 1.5rem 0;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--border);
-        }
-        
-        .project-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.5rem 0 0;
-        }
-        
-        .skill-tag {
-            background: var(--bg-light);
-            color: var(--text-light);
-            padding: 0.35rem 0.9rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-        
-        .skill-tag:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Publications Section Styles */
-        .publication-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            display: flex;
-            gap: 1.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .publication-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .publication-icon {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-top: 0.5rem;
-        }
-
-        .publication-content {
-            flex: 1;
-        }
-
-        .publication-content h3 {
-            color: var(--text);
-            margin: 0 0 1.5rem;
-            font-size: 1.4rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        .publication-item {
-            display: flex;
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .publication-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .publication-item i {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-top: 0.3rem;
-        }
-
-        .publication-details {
-            flex: 1;
-        }
-
-        .publication-item h4 {
-            margin: 0 0 0.5rem;
-            color: var(--text);
-            font-size: 1.1rem;
-        }
-
-        .publication-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 0.5rem 0 0.75rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .publication-meta i {
-            margin-right: 0.3rem;
-            font-size: 0.9em;
-        }
-
-        .publication-venue,
-        .publication-description {
-            margin: 0.5rem 0 0;
-            color: var(--text);
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .publication-venue i {
-            color: var(--primary);
-            margin-right: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .publication-card {
-                flex-direction: column;
-                padding: 1.5rem;
-            }
-
-            .publication-icon {
-                margin-bottom: 1rem;
-            }
-
-            .publication-meta {
-                gap: 0.75rem 1.5rem;
-            }
-        }
-        
-        .project-links {
-            margin-top: 1.5rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.25rem;
-            border-radius: 4px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-            border: 1px solid transparent;
-        }
-        
-        .btn i {
-            font-size: 0.9em;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #247a4a;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(46, 139, 87, 0.2);
-        }
-        
-        .btn-outline {
-            border: 1px solid var(--secondary);
-            color: var(--secondary);
-            background: transparent;
-        }
-        
-        .btn-outline:hover {
-            background: rgba(74, 144, 226, 0.05);
-            transform: translateY(-2px);
-        }
-        
-        @media (max-width: 768px) {
-            .section {
-                padding: 3rem 0;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-                margin-bottom: 3rem;
-            }
-            
-            .project-card {
-                padding: 1.5rem;
-            }
-            
-            .project-meta {
-                gap: 1rem;
-                margin-bottom: 1rem;
-                padding-bottom: 1rem;
-            }
-            
-            .project-date, .project-role, .project-location {
-                font-size: 0.95rem;
-            }
-            
-            .project-skills {
-                gap: 0.5rem;
-            }
-            
-            .project-skills span {
-                padding: 0.2rem 0.6rem;
-                font-size: 0.75rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .section {
-                padding: 2.5rem 0;
-            }
-            
-            .page-title {
-                font-size: 1.75rem;
-                margin-bottom: 2.5rem;
-            }
-            
-            .project-card {
-                padding: 1.25rem;
-            }
-            
-            .project-card h3 {
-                font-size: 1.3rem;
-            }
-            
-            .project-meta {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .project-description {
-                padding-left: 1rem;
-                margin: 1.25rem 0;
-            }
-            
-            .project-links {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    
+  <!-- Navigation -->
+  
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">Adhith M K</a>
@@ -473,7 +682,7 @@
         <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="research.html" class="nav-link active"><i class="fas fa-flask"></i> Research</a></li>
         <li><a href="education.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
-        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications & Awards</a></li>
+        <li><a href="certifications-awards.html" class="nav-link"><i class="fas fa-award"></i> Certifications</a></li>
         <li><a href="field-work.html" class="nav-link"><i class="fas fa-mountain"></i> Field Work</a></li>
         <li><a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
         <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
@@ -630,47 +839,208 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="index.html">Adhith M K</a>
-                    <p>Ecological Informatics Researcher</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="research.html">Research & Publications</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
-                        <li><a href="field-work.html">Field Work</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contact Me</h4>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
-                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
-                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Adhith M K. All rights reserved.</p>
-            </div>
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>Adhith M K</h3>
+          <p>Ecological Informatics Researcher passionate about wildlife conservation and sustainable development through data-driven approaches.</p>
+          <div class="contact">
+            <span><i class="fas fa-envelope"></i> theadhith@gmail.com</span>
+            <span><i class="fas fa-map-marker-alt"></i> Kerala, India</span>
+          </div>
         </div>
-    </footer>
+        
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="research.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+            <li><a href="education.html"><i class="fas fa-chevron-right"></i> Education</a></li>
+            <li><a href="field-work.html"><i class="fas fa-chevron-right"></i> Field Work</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section social">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky">
+              <i class="fas fa-cloud"></i>
+            </a>
+            <a href="#" aria-label="ResearchGate">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="#" aria-label="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Adhith M K. All rights reserved.</p>
+        <div class="footer-menu">
+          <a href="#">Privacy Policy</a>
+          <span>|</span>
+          <a href="#">Terms & Conditions</a>
+          <span>|</span>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
-  <!-- Link Validator -->
-  <script src="/js/link-validator.js"></script>
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li');
+    
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+      
+      // Animate nav items
+      if (navLinks.classList.contains('active')) {
+        navItems.forEach((item, index) => {
+          item.style.animation = `navItemFade 0.5s ease forwards ${index / 7 + 0.1}s`;
+        });
+      } else {
+        navItems.forEach(item => {
+          item.style.animation = '';
+        });
+      }
+    });
+    
+    // Close mobile menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkHref = link.getAttribute('href');
+      // Remove active class from all links first
+      link.classList.remove('active');
+      
+      // Add active class to current section based on scroll position
+      if (linkHref.startsWith('#')) {
+        const section = document.querySelector(linkHref);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            link.classList.add('active');
+          }
+        }
+      } else if (linkHref === 'research.html' && window.location.pathname.endsWith('research.html')) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Don't prevent default for external links or non-anchor links
+        if (this.getAttribute('href').startsWith('http') || 
+            this.getAttribute('href').includes('.html')) {
+          return;
+        }
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#' || targetId === '') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Update URL without page reload
+          history.pushState(null, null, targetId);
+          
+          // Scroll to the target element
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = '#' + section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+    
+    // Header scroll effect
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Add/remove scrolled class for header style change
+      if (currentScroll > 20) {
+        navbar.style.padding = '0.5rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '1rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+      }
+      
+      // Hide/show header on scroll
+      if (currentScroll <= 0) {
+        navbar.classList.remove('scroll-up');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+        // Scroll Down
+        navbar.classList.remove('scroll-up');
+        navbar.classList.add('scroll-down');
+      } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+        // Scroll Up
+        navbar.classList.remove('scroll-down');
+        navbar.classList.add('scroll-up');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  </script>
 </body>
 </html>

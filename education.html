@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#2E8B57">
-    <title>Education | Adhith M K</title>
+    <title>Education | Adhith M K - Ecological Informatics & Acoustic Ecology</title>
     
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,205 +14,594 @@
     
     <!-- Preload critical CSS -->
     <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"></noscript>
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/navigation.css">
-    <style>
-        /* Modern Minimalist Education Styles */
-        :root {
-            --primary: #2E8B57;
-            --secondary: #4a90e2;
-            --text: #2c3e50;
-            --text-light: #6c757d;
-            --bg-light: #f8f9fa;
-            --border: #e9ecef;
-            --card-bg: #ffffff;
-            --shadow: 0 2px 8px rgba(0,0,0,0.05);
-            --radius: 8px;
-        }
-        
-        body {
-            background-color: #fff;
-            color: var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .section {
-            padding: 5rem 0;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .page-title {
-            text-align: center;
-            margin: 0 0 4rem;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--text);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .education-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2rem;
-            transition: all 0.2s ease;
-        }
-        
-        .education-card:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow);
-            transform: translateY(-2px);
-        }
-        
-        .education-header {
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-        }
-        
-        .education-card h3 {
-            color: var(--text);
-            margin: 0 0 0.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .degree, .date-location {
-            color: var(--text-light);
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .date-location i {
-            color: var(--primary);
-            width: 20px;
-            text-align: center;
-        }
-        
-        .education-body {
-            padding: 1.5rem 2rem 2rem;
-        }
-        
-        .education-details {
-            padding: 1.5rem 0 0;
-        }
-        
-        .education-details p {
-            margin: 0 0 1rem;
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-        
-        .education-details ul {
-            padding-left: 1.2rem;
-            margin: 1rem 0 0;
-        }
-        
-        .education-details li {
-            margin-bottom: 0.5rem;
-            color: var(--text-light);
-            position: relative;
-            padding-left: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .education-details li::before {
-            content: '•';
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: 0.5rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section {
-                padding: 3rem 0;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-                margin-bottom: 3rem;
-            }
-            
-            .education-card {
-                padding: 1.5rem;
-            }
-            
-            .education-header {
-                padding: 0 0 1rem;
-                margin-bottom: 1rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .section {
-                padding: 2.5rem 0;
-            }
-            
-            .page-title {
-                font-size: 1.75rem;
-                margin-bottom: 2.5rem;
-            }
-            
-            .education-card {
-                padding: 1.25rem;
-            }
-            
-            .education-card h3 {
-                font-size: 1.3rem;
-            }
-            
-            .degree, .date-location {
-                font-size: 0.95rem;
-            }
-        }
-        
-        /* Add a subtle pattern to the background */
-        body {
-            background-color: #f8f9fa;
-            background-image: radial-gradient(#e3e3e3 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-    </style>
+  <style>
+    :root {
+      --primary-color: #1e8449;
+      --primary: #2E8B57;
+      --secondary: #4a90e2;
+      --text-color: #333;
+      --text: #333;
+      --text-light: #666;
+      --light-gray: #f8f9fa;
+      --bg-light: #f8f9fa;
+      --white: #ffffff;
+      --border: #e0e0e0;
+      --border-radius: 8px;
+      --radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      --dark: #333;
+      --header-height: 70px;
+      --container-width: 1200px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f5f7fa;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: var(--transition);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      height: var(--header-height);
+      max-width: var(--container-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      color: var(--dark);
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transition: var(--transition);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--dark);
+      margin: 5px 0;
+      transition: var(--transition);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 992px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 80px 0;
+        transition: right 0.4s ease;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links li {
+        margin: 1.5rem 0;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.3s ease, transform 0.4s ease;
+      }
+
+      .nav-links.active li {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
+      .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+      .nav-links.active li:nth-child(3) { transition-delay: 0.25s; }
+      .nav-links.active li:nth-child(4) { transition-delay: 0.3s; }
+      .nav-links.active li:nth-child(5) { transition-delay: 0.35s; }
+      .nav-links.active li:nth-child(6) { transition-delay: 0.4s; }
+      .nav-links.active li:nth-child(7) { transition-delay: 0.45s; }
+    }
+    
+    /* Prevent scrolling when mobile menu is open */
+    body.no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Education Page Layout */
+    .section {
+      padding: 5rem 0;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .page-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    /* Education Cards */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .education-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .education-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .education-header h3 {
+      color: var(--text);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .education-header .degree {
+      color: var(--primary);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .education-header .date-location {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .education-header .date-location i {
+      color: var(--primary);
+      width: 16px;
+      text-align: center;
+    }
+
+    .education-details {
+      margin-top: 1rem;
+    }
+
+    .education-details p {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .education-details strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .education-details ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .education-details li {
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* Skills Section */
+    .skills-section {
+      background-color: var(--bg-light);
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .skill-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .skill-tag {
+      background: var(--primary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: var(--dark);
+      color: var(--white);
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: var(--white);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: var(--text-light);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact span {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-light);
+    }
+
+    .contact i {
+      color: var(--primary);
+    }
+
+    .footer-section.links ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section.links li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section.links a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section.links a:hover {
+      color: var(--white);
+    }
+
+    .footer-section.links i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--text-light);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-bottom p {
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .footer-menu {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-menu a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-menu a:hover {
+      color: var(--white);
+    }
+
+    .footer-menu span {
+      color: var(--text-light);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .section {
+        padding: 3rem 0;
+      }
+
+      .page-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .education-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .education-card {
+        padding: 1.5rem;
+      }
+
+      .education-header h3 {
+        font-size: 1.2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .skill-card {
+        padding: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .page-title {
+        font-size: 1.75rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .education-card {
+        padding: 1.25rem;
+      }
+
+      .education-header h3 {
+        font-size: 1.1rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    
+  <!-- Navigation -->
+  
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="logo">Adhith M K</a>
@@ -234,95 +622,353 @@
     </div>
   </nav>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <div class="container">
-            <h1 class="page-title">Education</h1>
-            
-            <div class="education-grid">
-                <!-- Education Item 1 -->
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Kerala University of Digital Sciences, Innovation and Technology</h3>
-                        <p class="degree"><i class="fas fa-graduation-cap"></i> Master of Science in Ecology</p>
-                        <p class="date-location"><i class="far fa-calendar-alt"></i> Aug. 2023 – May 2025</p>
-                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Thiruvananthapuram, Kerala</p>
-                    </div>
-                    <div class="education-body">
-                        <div class="education-details">
-                            <p><strong>Specialization:</strong> Ecological Informatics</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Education Item 2 -->
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Shivaji College, University of Delhi</h3>
-                        <p class="degree"><i class="fas fa-graduation-cap"></i> Bachelor of Science in Zoology</p>
-                        <p class="date-location"><i class="far fa-calendar-alt"></i> Jun 2019 – Mar 2022</p>
-                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
-                    </div>
-
-                </div>
-                
-                <!-- Education Item 3 -->
-                <div class="education-card">
-                    <div class="education-header">
-                        <h3>Farook Higher Secondary School</h3>
-                        <p class="degree"><i class="fas fa-graduation-cap"></i> Science (Biology)</p>
-                        <p class="date-location"><i class="far fa-calendar-alt"></i> Jul. 2017 – Mar. 2019</p>
-                        <p class="date-location"><i class="fas fa-map-marker-alt"></i> Kozhikode, Kerala</p>
-                    </div>
-                    <div class="education-body">
-                        <div class="education-details">
-                            <p><strong>Grade:</strong> 95%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- Education Section -->
+  <section class="section" id="education">
+    <div class="container">
+      <h1 class="page-title">Education</h1>
+      
+      <!-- Education Grid -->
+      <div class="education-grid">
+        <!-- Education Item 1 -->
+        <div class="education-card">
+          <div class="education-header">
+            <h3>Kerala University of Digital Sciences, Innovation and Technology</h3>
+            <p class="degree"><i class="fas fa-graduation-cap"></i> Master of Science in Ecology</p>
+            <p class="date-location"><i class="far fa-calendar-alt"></i> Aug. 2023 – May 2025</p>
+            <p class="date-location"><i class="fas fa-map-marker-alt"></i> Thiruvananthapuram, Kerala</p>
+          </div>
+          <div class="education-details">
+            <p><strong>Specialization:</strong> Ecological Informatics</p>
+            <p><strong>Focus Areas:</strong></p>
+            <ul>
+              <li>Wildlife Conservation and Management</li>
+              <li>Biodiversity Assessment</li>
+              <li>Computational Ecology</li>
+              <li>Geographic Information Systems (GIS)</li>
+            </ul>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>Adhith M K</h3>
-                    <p>Ecological Informatics Researcher passionate about biodiversity conservation and sustainable development through technology and research.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky"><i class="fas fa-cloud"></i></a>
-                        <a href="#" aria-label="ResearchGate"><i class="fab fa-researchgate"></i></a>
-                        <a href="#" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                    </div>
-                </div>
-                <div class="footer-section links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="research.html">Research & Publications</a></li>
-                        <li><a href="education.html">Education</a></li>
-                        <li><a href="certifications-awards.html">Certifications & Awards</a></li>
-                        <li><a href="field-work.html">Field Work</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:theadhith@gmail.com">theadhith@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+919400000000">+91 94000 00000</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Kerala, India</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <script>document.write(new Date().getFullYear())</script> Adhith M K. All rights reserved.</p>
-            </div>
+        
+        <!-- Education Item 2 -->
+        <div class="education-card">
+          <div class="education-header">
+            <h3>Shivaji College, University of Delhi</h3>
+            <p class="degree"><i class="fas fa-graduation-cap"></i> Bachelor of Science in Zoology</p>
+            <p class="date-location"><i class="far fa-calendar-alt"></i> Jun 2019 – Mar 2022</p>
+            <p class="date-location"><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+          </div>
+          <div class="education-details">
+            <p><strong>Key Courses:</strong></p>
+            <ul>
+              <li>Animal Physiology</li>
+              <li>Genetics and Evolution</li>
+              <li>Ecology and Environmental Biology</li>
+              <li>Wildlife Biology</li>
+            </ul>
+          </div>
         </div>
-    </footer>
+        
+        <!-- Education Item 3 -->
+        <div class="education-card">
+          <div class="education-header">
+            <h3>Farook Higher Secondary School</h3>
+            <p class="degree"><i class="fas fa-graduation-cap"></i> Science (Biology)</p>
+            <p class="date-location"><i class="far fa-calendar-alt"></i> Jul. 2017 – Mar. 2019</p>
+            <p class="date-location"><i class="fas fa-map-marker-alt"></i> Kozhikode, Kerala</p>
+          </div>
+          <div class="education-details">
+            <p><strong>Grade:</strong> 95%</p>
+            <p><strong>Subjects:</strong> Biology, Physics, Chemistry, Mathematics</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-title">Technical Skills & Expertise</h2>
+      
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="skill-name">Data Analysis</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SPSS</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-map"></i>
+          </div>
+          <h3 class="skill-name">GIS & Mapping</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">QGIS</span>
+            <span class="skill-tag">ArcGIS</span>
+            <span class="skill-tag">Google Earth</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-microphone"></i>
+          </div>
+          <h3 class="skill-name">Bioacoustics</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Raven Pro</span>
+            <span class="skill-tag">Audacity</span>
+            <span class="skill-tag">Kaleidoscope</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="skill-name">Database Management</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="skill-name">Programming</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">
+            <i class="fas fa-paw"></i>
+          </div>
+          <h3 class="skill-name">Field Research</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Wildlife Survey</span>
+            <span class="skill-tag">Habitat Assessment</span>
+            <span class="skill-tag">Species ID</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section about">
+          <h3>Adhith M K</h3>
+          <p>Ecological Informatics Researcher passionate about wildlife conservation and sustainable development through data-driven approaches.</p>
+          <div class="contact">
+            <span><i class="fas fa-envelope"></i> adhith@gmail.com</span>
+            <span><i class="fas fa-map-marker-alt"></i> Kerala, India</span>
+          </div>
+        </div>
+        
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="research.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+            <li><a href="education.html"><i class="fas fa-chevron-right"></i> Education</a></li>
+            <li><a href="field-work.html"><i class="fas fa-chevron-right"></i> Field Work</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section social">
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/adhithmk/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/AdhithMk" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://bsky.app/profile/adhithmk.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="BlueSky">
+              <i class="fas fa-cloud"></i>
+            </a>
+            <a href="#" aria-label="ResearchGate">
+              <i class="fab fa-researchgate"></i>
+            </a>
+            <a href="#" aria-label="Google Scholar">
+              <i class="fas fa-graduation-cap"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Adhith M K. All rights reserved.</p>
+        <div class="footer-menu">
+          <a href="#">Privacy Policy</a>
+          <span>|</span>
+          <a href="#">Terms & Conditions</a>
+          <span>|</span>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li');
+    
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+      
+      // Animate nav items
+      if (navLinks.classList.contains('active')) {
+        navItems.forEach((item, index) => {
+          item.style.animation = `navItemFade 0.5s ease forwards ${index / 7 + 0.1}s`;
+        });
+      } else {
+        navItems.forEach(item => {
+          item.style.animation = '';
+        });
+      }
+    });
+    
+    // Close mobile menu when clicking on a nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 992) {
+          mobileMenuToggle.classList.remove('active');
+          navLinks.classList.remove('active');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+    });
+    
+    // Add active class to current page in navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const linkHref = link.getAttribute('href');
+      // Remove active class from all links first
+      link.classList.remove('active');
+      
+      // Add active class to current section based on scroll position
+      if (linkHref.startsWith('#')) {
+        const section = document.querySelector(linkHref);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            link.classList.add('active');
+          }
+        }
+      } else if (linkHref === 'education.html' && window.location.pathname.endsWith('education.html')) {
+        link.classList.add('active');
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        // Don't prevent default for external links or non-anchor links
+        if (this.getAttribute('href').startsWith('http') || 
+            this.getAttribute('href').includes('.html')) {
+          return;
+        }
+        
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        
+        if (targetId === '#' || targetId === '') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          // Update URL without page reload
+          history.pushState(null, null, targetId);
+          
+          // Scroll to the target element
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          this.classList.add('active');
+        }
+      });
+    });
+    
+    // Update active state on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      
+      document.querySelectorAll('section[id]').forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = '#' + section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+    
+    // Header scroll effect
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Add/remove scrolled class for header style change
+      if (currentScroll > 20) {
+        navbar.style.padding = '0.5rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+      } else {
+        navbar.style.padding = '1rem 0';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+      }
+      
+      // Hide/show header on scroll
+      if (currentScroll <= 0) {
+        navbar.classList.remove('scroll-up');
+        return;
+      }
+      
+      if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+        // Scroll Down
+        navbar.classList.remove('scroll-up');
+        navbar.classList.add('scroll-down');
+      } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+        // Scroll Up
+        navbar.classList.remove('scroll-down');
+        navbar.classList.add('scroll-up');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  </script>
 </body>
 </html>

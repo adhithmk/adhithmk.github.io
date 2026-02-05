@@ -2,7 +2,7 @@
 RewriteEngine On
 
 # Set the 404 ErrorDocument
-ErrorDocument 404 /404.html
+ErrorDocument 404 "/404 Page Not Found/404index.html"
 
 # Prevent directory listing
 Options -Indexes
